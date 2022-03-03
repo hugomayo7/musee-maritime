@@ -1,0 +1,25 @@
+.disposition{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 .5rem 0 1rem;
+}
+
+.open {
+    background-color: #00C72C;
+}
+
+.close {
+    background-color: red;
+}
+
+.text{
+    font-size: 12px;
+    font-weight: 400;
+}

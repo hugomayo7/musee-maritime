@@ -1,0 +1,11 @@
+.disposition{
+    width: 100%;
+    overflow: hidden;
+    margin: 1rem;
+    border: solid #38679D 2px;
+    border-radius: 5px;
+}
+
+.map{
+    height: 300px;
+}
