@@ -47,10 +47,10 @@ services:
     volumes:
       - "./mysql:/var/lib/mysql"
     environment:
-      MYSQL_DATABASE: dbsfapi
-      MYSQL_ROOT_PASSWORD: dbsfapi
-      MYSQL_USER: api
-      MYSQL_PASSWORD: api
+      MYSQL_DATABASE: dbprojetmusee
+      MYSQL_ROOT_PASSWORD: rootprojetmusee
+      MYSQL_USER: pmm
+      MYSQL_PASSWORD: pmm
     networks:
       - back-network
   react:
@@ -63,7 +63,7 @@ services:
     stdin_open: true
     volumes:
        - ./front:/app/front
-       - /app/front/node_modulesss
+       - /app/front/node_modules
 networks:
   back-network: 
     driver: bridge
