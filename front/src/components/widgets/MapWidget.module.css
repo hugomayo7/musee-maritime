@@ -1,11 +1,41 @@
 .disposition{
-    width: 100%;
     overflow: hidden;
-    margin: 1rem;
-    border: solid #38679D 2px;
-    border-radius: 5px;
 }
 
 .map{
     height: 300px;
+}
+
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.icon span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.marker{
+    width: 25px;
+    height: 25px;
+    border: solid black 2px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.selected {
+background-color: yellow;
 }

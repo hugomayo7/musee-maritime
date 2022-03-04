@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.leaflet-marker-icon {
+  margin: 0 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.leaflet-control-zoom{
+  display: flex !important;
+  flex-direction: row !important;
+  border: none !important;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+border-radius: 50% !important;
+background-color: #38679D !important;
+color: white !important;
+}
+
