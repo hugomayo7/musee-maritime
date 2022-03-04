@@ -24,9 +24,17 @@ code {
   border: none !important;
 }
 
+.leaflet-control-zoom-in {
+  margin-right: 5px !important;
+}
+
 .leaflet-control-zoom-in, .leaflet-control-zoom-out {
 border-radius: 50% !important;
 background-color: #38679D !important;
 color: white !important;
 }
+
+
+
+
 
