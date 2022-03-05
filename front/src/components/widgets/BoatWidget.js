@@ -11,7 +11,7 @@ function BoatWidget () {
             <span className={`${styles.nameboat}`}>Angoumois</span>
           </div>
           <div className={`${styles.description}`}>
-            <span className={`${styles.dot} ${styles.open}`}></span>
+            <span className={`${styles.dot} ${styles.open}`}/>
             <span className={`${styles.descriptiontext}`}>
               Montée à bord autorisée
             </span>
@@ -22,7 +22,7 @@ function BoatWidget () {
         </div>
       </div>
       <div className={`${styles.image}`}>
-        <img src={image} alt='Bateau selectionne'></img>
+        <img src={image} alt='Bateau selectionne'/>
       </div>
     </div>
   )

@@ -71,7 +71,7 @@ function MapWidget () {
 
   return (
     <div className={`${styles.disposition}`}>
-      <div id='map' className={`${styles.map}`}></div>
+      <div id='map' className={`${styles.map}`}/>
     </div>
   )
 }
