@@ -1,13 +1,13 @@
-export let json = {
+let json = {
         "museum": {
-            "open": true,
+            "open": Math.floor(Math.random() * 2) + 0,
         }
     };
 
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(json);
-    }, 2000);
+    }, 4000);
 });
 
 export default myPromise;

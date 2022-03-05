@@ -13,7 +13,7 @@ let json = {
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(json);
-    }, 2000);
+    }, 3000);
 });
 
 export default myPromise;

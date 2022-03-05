@@ -1,0 +1,72 @@
+.skel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+
+
+.top {
+    width: 80%;
+}
+
+.bot {
+    display: flex;
+    flex-direction: row;
+}
+
+.bot > .left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.bot > .left > *, .bot > .right, .top {
+    border-radius: 10px;
+    height: 20px;
+    background-color: #dadada;
+    margin: .3rem 0;
+    animation-name: main-anim;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.top {
+    animation-delay: 0s;
+}
+
+.bot > .left > *, .bot > .right{
+    animation-delay: .2s;
+}
+
+@keyframes main-anim {
+    from {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.bot > .left > div:nth-child(1){
+    width: 40%;
+}
+
+.bot > .left > div:nth-child(2){
+    width: 100%;
+}
+
+.bot > .right {
+    width: 60%;
+    height: 80%;
+    margin: 6px 8px;
+}

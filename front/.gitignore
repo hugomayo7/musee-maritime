@@ -11,6 +11,9 @@
 # production
 /build
 
+/front/package-lock.json
+/front/yarn.lock
+
 # misc
 .DS_Store
 .env.local

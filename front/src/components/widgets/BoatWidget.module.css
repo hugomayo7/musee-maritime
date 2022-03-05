@@ -1,5 +1,6 @@
 .disposition {
     min-height: 100px;
+    max-height: 135px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,9 +11,14 @@
     flex-direction: column;
 }
 
-.image {
-    border-radius: 4px;
+.imagediv {
     padding: .4rem .4rem;
+}
+
+.image{
+    width: auto;
+    height: 100%;
+    border-radius: 4px;
 }
 
 .dot {
@@ -28,6 +34,10 @@
 
 .close {
     background-color: red;
+}
+
+.loading {
+    background-color: orange;
 }
 
 div.button {
@@ -90,4 +100,9 @@ div.button>* {
 
 .descriptiontext {
     font-size: 12px;
+}
+
+.skel {
+    height: 100%;
+    width: 180px;
 }
