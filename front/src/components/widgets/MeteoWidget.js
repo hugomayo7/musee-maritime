@@ -1,5 +1,5 @@
 import styles from './MeteoWidget.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import myPromise from '../../tests/api/meteo'
 import loadingIcon from '../../static/icons/loading.svg'
 
@@ -7,17 +7,25 @@ function MeteoWidget () {
   const [temp, setTemp] = useState('--')
   const [conditions, setConditions] = useState('')
   const [icon, setIcon] = useState(loadingIcon)
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => (mounted.current = false)
+  })
 
   useEffect(() => {
     const fetchData = async () => {
       await myPromise.then(e => {
-        setTemp(e.meteo.temp)
-        setConditions(e.meteo.currentConditions)
-        setIcon(
-          'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
-            e.meteo.icon +
-            '.svg'
-        )
+        if (mounted.current) {
+          setTemp(e.meteo.temp)
+          setConditions(e.meteo.currentConditions)
+          setIcon(
+            'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+              e.meteo.icon +
+              '.svg'
+          )
+        }
       })
     }
     fetchData()

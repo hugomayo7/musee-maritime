@@ -1,23 +1,31 @@
 import styles from './MuseumStateWidget.module.css'
 import myPromise from '../../tests/api/museum'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function MuseumStateWidget () {
   const [state, setState] = useState('Chargement ...')
   const [dotIcon, setDotIcon] = useState(styles.loading)
   const [textType, setTextType] = useState(styles.textLoading)
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => (mounted.current = false)
+  })
 
   useEffect(() => {
     const fetchData = async () => {
       await myPromise.then(e => {
-        if (e.museum.open) {
-          setState('Musée Ouvert')
-          setDotIcon(styles.open)
-          setTextType(styles.text)
-        } else {
-          setState('Musée Fermé')
-          setDotIcon(styles.close)
-          setTextType(styles.text)
+        if (mounted.current) {
+          if (e.museum.open) {
+            setState('Musée Ouvert')
+            setDotIcon(styles.open)
+            setTextType(styles.text)
+          } else {
+            setState('Musée Fermé')
+            setDotIcon(styles.close)
+            setTextType(styles.text)
+          }
         }
       })
     }

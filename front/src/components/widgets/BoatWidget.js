@@ -1,16 +1,22 @@
 import styles from './BoatWidget.module.css'
 import myPromise from '../../tests/api/boats'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Skel from '../Skel'
 
 function BoatWidget (props) {
   const [boatsData, setBoatsData] = useState()
   const [boatData, setBoatData] = useState()
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    mounted.current = true
+    return () => (mounted.current = false)
+  })
 
   useEffect(() => {
     const fetchData = async () => {
       await myPromise.then(e => {
-        setBoatsData(e.boatsList)
+        if (mounted.current) setBoatsData(e.boatsList)
       })
     }
     fetchData()
@@ -33,7 +39,9 @@ function BoatWidget (props) {
         <div className={`${styles.textcontent}`}>
           <div className={`${styles.dispositionleft}`}>
             <div className={`${styles.title}`}>
-              <span className={`${styles.idboat}`}>{boatData?.id + 1}</span>
+              <span className={`${styles.idboat}`}>
+                {boatData?.id ? boatData?.id + 1 : ''}
+              </span>
               <span className={`${styles.nameboat}`}>{boatData?.name}</span>
             </div>
             <div className={`${styles.description}`}>

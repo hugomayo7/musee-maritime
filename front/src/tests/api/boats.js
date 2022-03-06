@@ -27,7 +27,7 @@ let json = {
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(json);
-    }, 8000);
+    }, 7000);
 });
 
 export default myPromise;
