@@ -34,7 +34,46 @@ background-color: #38679D !important;
 color: white !important;
 }
 
+.display-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
 
+.display-enter.display-enter-active {
+  opacity: 1;
+}
 
+.display-leave {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
 
+.display-leave.display-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 
+.display-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+
+.display-appear.display-appear-active {
+  opacity: 1;
+}
+
+.leaflet-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-control {
+  z-index: 1 !important;
+}
+
+.leaflet-top, .leaflet-bottom {
+  z-index: 1 !important;
+}
+
+#root > div:nth-child(1) {
+  padding-bottom: 55px;
+}

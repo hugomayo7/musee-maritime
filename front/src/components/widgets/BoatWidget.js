@@ -40,7 +40,7 @@ function BoatWidget (props) {
           <div className={`${styles.dispositionleft}`}>
             <div className={`${styles.title}`}>
               <span className={`${styles.idboat}`}>
-                {boatData?.id ? boatData?.id + 1 : ''}
+                {boatData?.id !== undefined ? boatData?.id + 1 : ''}
               </span>
               <span className={`${styles.nameboat}`}>{boatData?.name}</span>
             </div>
