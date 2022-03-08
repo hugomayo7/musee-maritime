@@ -7,7 +7,7 @@ export default function BoatCard (props) {
   return (
     <div className={`${styles.maincard}`}>
       <img src={boat.image} alt='Boat'></img>
-      <span>{boat.name}</span>
+      <span>{boat.name}</span> 
     </div>
   )
 }
