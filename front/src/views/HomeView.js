@@ -11,7 +11,7 @@ const HomeView = () => {
 
   return (
     <div className={styles.maindiv}>
-      <Header />
+      <Header title={"Bassin à flot : histoire et témoignages"}/>
       <HeaderWidget widgets={widgets} />
       <Map />
     </div>

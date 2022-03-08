@@ -6,7 +6,7 @@ import styles from './BoatsView.module.css'
 export default function BoatsView () {
   return (
     <div>
-      <Header />
+      <Header title={"Détail de la flotte"}/>
       <BoatsList/>
     </div>
   )
