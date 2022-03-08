@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+import re, sys, os
+
+def main():
+    # example:
+    # feat: added the ability to add api key to configuration
+    pattern = r'(docs|feat|fix|update):\s.*'
+    filename = sys.argv[1]
+    ss = open(filename, 'r').read()
+    m = re.match(pattern, ss)
+    if m == None: raise Exception("conventional commit validation failed")
+
+if __name__ == "__main__":
+    main()
