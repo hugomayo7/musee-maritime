@@ -42,14 +42,15 @@
     background-color: orange;
 }
 
-div.button {
+.button {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    text-decoration: none;
 }
 
-div.button>* {
+.button>* {
     background-color: #80A8D6;
     border-radius: 20px;
     border: none;

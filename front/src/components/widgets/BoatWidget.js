@@ -1,6 +1,7 @@
 import styles from './BoatWidget.module.css'
 import myPromise from '../../tests/api/boats'
 import { useEffect, useRef, useState } from 'react'
+import {Link} from 'react-router-dom'
 import Skel from '../Skel'
 
 function BoatWidget (props) {
@@ -59,9 +60,9 @@ function BoatWidget (props) {
               </span>
             </div>
           </div>
-          <div className={`${styles.button}`}>
+          <Link to={"bateaux/" + boatsData?.id} className={`${styles.button}`}>
             <button>&gt; En savoir plus</button>
-          </div>
+          </Link>
         </div>
         <div className={`${styles.imagediv}`}>
           {boatData?.image ? (
