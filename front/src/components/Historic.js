@@ -1,7 +1,11 @@
 import React from 'react'
+import SpinnerDotWidget from './widgets/SpinnerDotWidget'
 
-export default function Historic() {
+export default function Historic(props) {
   return (
-    <div>Historic</div>
+    props?.history?
+    <div>{props?.history}</div>
+    :
+    <SpinnerDotWidget/>
   )
 }

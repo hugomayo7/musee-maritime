@@ -5,11 +5,11 @@ import Header from '../components/Header'
 import BoatState from '../components/widgets/BoatState'
 import HeaderWidget from '../components/widgets/HeaderWidget'
 import { useParams } from 'react-router-dom'
-import Planning from "../components/Planning"
-import Historic from "../components/Historic"
-import Characteristics from "../components/Characteristics"
-import Tastimonials from "../components/Tastimonials"
-
+import Planning from '../components/Planning'
+import Historic from '../components/Historic'
+import Characteristics from '../components/Characteristics'
+import Tastimonials from '../components/Tastimonials'
+import BasicTitleWidget from '../components/widgets/BasicTitleWidget'
 
 export default function BoatDetailsView (props) {
   const { id } = useParams()
@@ -37,10 +37,17 @@ export default function BoatDetailsView (props) {
       <div className={styles.dispositioncenter}>
         <HeaderWidget widgets={widgets} />
       </div>
-      <Planning planning={boat?.visits}/>
-      <Historic historic={boat?.historic}/>
-      <Characteristics characteristics={boat?.characteristics}/>
-      <Tastimonials tastimonials={boat?.tastimonials}/>
+      <BasicTitleWidget text='Planning des visites' />
+      <Planning planning={boat?.visits} />
+      <BasicTitleWidget text='Historique' />
+      <div className={styles.basictext}>
+        <Historic history={boat?.history} />
+      </div>
+      <BasicTitleWidget text='Caractéristiques' />
+      <div className={styles.basictext}>
+        <Characteristics characteristics={boat?.characteristics} />
+      </div>
+      <Tastimonials tastimonials={boat?.tastimonials} />
     </div>
   )
 }

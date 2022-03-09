@@ -13,3 +13,8 @@
     margin-left: .5rem;
     font-size: 13px !important;
 }
+
+.basictext {
+    margin: 0 1rem;
+    text-align: justify;
+}

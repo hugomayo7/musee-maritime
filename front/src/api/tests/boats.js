@@ -6,7 +6,7 @@ let json = {
         {
             "id": 1,
             "name": "France 1",
-            "history": "Le France 1 blablabla",
+            "history": "Le France 1 Lorem ipsum dolor sit amet. Ut illum ullam quo enim galisum sed distinctio inventore. Aut minus fugit hic odio itaque aut inventore minus qui officia totam vel dolorum voluptate non aliquid distinctio. Aut quas nobis et harum quia eum quis eaque ut quod autem nam iste enim nam magnam maiores ad saepe dolore. Vel deleniti possimus et unde tempore rem odit aliquid 33 omnis voluptatum.",
             "state": 1,
             "stateText": "Montée à bord autorisée",
             "characteristics": {

@@ -4,7 +4,7 @@ import styles from "./BasicTitleWidget.module.css"
 export default function BasicTitleWidget(props) {
   return (
     <>
-    <span className={styles.title}>{props?.text}</span>
+    <div className={styles.title}>{props?.text}</div>
     </>
   )
 }
