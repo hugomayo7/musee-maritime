@@ -1,11 +1,8 @@
 import styles from './MuseumStateWidget.module.css'
-import myPromise from '../../tests/api/museum'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-function MuseumStateWidget () {
-  const [state, setState] = useState('Chargement ...')
-  const [dotIcon, setDotIcon] = useState(styles.loading)
-  const [textType, setTextType] = useState(styles.textLoading)
+function MuseumStateWidget (props) {
+
   const mounted = useRef(false)
 
   useEffect(() => {
@@ -13,34 +10,13 @@ function MuseumStateWidget () {
     return () => (mounted.current = false)
   })
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await myPromise.then(e => {
-        if (mounted.current) {
-          if (e.museum.open) {
-            setState('Musée Ouvert')
-            setDotIcon(styles.open)
-            setTextType(styles.text)
-          } else {
-            setState('Musée Fermé')
-            setDotIcon(styles.close)
-            setTextType(styles.text)
-          }
-        }
-      })
-    }
+  
 
-    fetchData()
-    // Auto refresh 10sec
-    setInterval(() => {
-      fetchData()
-    }, 10000)
-  }, [])
-
+  
   return (
     <div className={`${styles.disposition}`}>
-      <div className={`${styles.dot} ${dotIcon}`} />
-      <span className={`${textType}`}>{state}</span>
+      <div className={`${styles.dot} ${props.museum.state===-1?styles.loading:props.museum.state===0?styles.close:styles.open}`} />
+      <span className={`${props.museum.state===-1?styles.textLoading:styles.text}`}>{props.museum.state===-1?"Chargement ...":props.museum.state===0?"Musée Fermé":"Musée Ouvert"}</span>
     </div>
   )
 }
