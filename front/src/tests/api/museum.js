@@ -6,7 +6,7 @@ let json = {
 
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve(json);
+        resolve(json); 
     }, 4000);
 });
 
