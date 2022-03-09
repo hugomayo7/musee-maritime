@@ -46,7 +46,7 @@ function BoatWidget (props) {
               </span>
               <span className={`${styles.nameboat}`}>{boatData?.name}</span>
             </div>
-          <BoatState boatData={boatData}/>
+            <BoatState boatData={boatData} />
           </div>
           <Link to={'bateaux/' + boatsData?.id} className={`${styles.button}`}>
             <button>&gt; En savoir plus</button>
