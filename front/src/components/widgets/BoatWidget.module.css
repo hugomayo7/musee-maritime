@@ -14,6 +14,8 @@
 .imagediv {
     padding: .4rem .4rem;
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .image{
@@ -22,34 +24,15 @@
     height: 100%;
     border-radius: 4px;
 }
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 0 .5rem 0 0;
-}
-
-.open {
-    background-color: #00C72C;
-}
-
-.close {
-    background-color: red;
-}
-
-.loading {
-    background-color: orange;
-}
-
-div.button {
+.button {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    text-decoration: none;
 }
 
-div.button>* {
+.button>* {
     background-color: #80A8D6;
     border-radius: 20px;
     border: none;
@@ -92,18 +75,6 @@ div.button>* {
     margin-bottom: 7px;
 }
 
-.description {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 1rem;
-}
-
-.descriptiontext {
-    font-size: 12px;
-}
 
 .skel {
     height: 100%;

@@ -1,7 +1,9 @@
 import styles from './BoatWidget.module.css'
 import myPromise from '../../api/tests/boats'
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Skel from '../Skel'
+import BoatState from './BoatState'
 
 function BoatWidget (props) {
   const [boatsData, setBoatsData] = useState()
@@ -28,8 +30,8 @@ function BoatWidget (props) {
       setBoatData({
         id: props.selectedBoat !== undefined ? props.selectedBoat : -1,
         name: 'Chargement',
-        open: -1,
-        openText: 'Chargement en cours...'
+        state: -1,
+        stateText: 'Chargement en cours...'
       })
   }, [props, setBoatData, boatsData])
 
@@ -44,24 +46,11 @@ function BoatWidget (props) {
               </span>
               <span className={`${styles.nameboat}`}>{boatData?.name}</span>
             </div>
-            <div className={`${styles.description}`}>
-              <span
-                className={`${styles.dot} ${
-                  boatData?.open === 1
-                    ? styles.open
-                    : boatData?.open === 0
-                    ? styles.close
-                    : styles.loading
-                }`}
-              />
-              <span className={`${styles.descriptiontext}`}>
-                {boatData?.openText}
-              </span>
-            </div>
+          <BoatState boatData={boatData}/>
           </div>
-          <div className={`${styles.button}`}>
+          <Link to={'bateaux/' + boatsData?.id} className={`${styles.button}`}>
             <button>&gt; En savoir plus</button>
-          </div>
+          </Link>
         </div>
         <div className={`${styles.imagediv}`}>
           {boatData?.image ? (

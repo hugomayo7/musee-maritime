@@ -5,10 +5,14 @@ import L from 'leaflet'
 
 function MapWidget (props) {
   const [map, setMap] = useState()
+  const [boatsData, setBoatsData] = useState()
+
+  useEffect(() => {setBoatsData(props.boatsData)}, [props.boatsData])
 
   useEffect(() => {
     const createMap = () => {
-      let a_map = L.map('map', {
+      if (!map) {
+        let a_map = L.map('map', {
           center: [46.152059, -1.151814],
           zoomControl: false,
           zoom: 16,
@@ -20,62 +24,50 @@ function MapWidget (props) {
           ]
         })
 
-      L.control
-        .zoom({
-          position: 'bottomleft'
-        })
-        .addTo(a_map)
-
-      let dataSet = [
-        {
-          position: {
-            x: 46.153059,
-            y: -1.151814
-          }
-        },
-        {
-          position: {
-            x: 46.15128,
-            y: -1.151834
-          }
-        }
-      ]
-
-      for (let i = 0; i < dataSet.length; i++) {
-        let marker = dataSet[i]
-        L.marker([marker.position.x, marker.position.y], {
-          icon: L.divIcon({
-            html: `<div id="iconMap${i + 1}"><div class=${
-              styles.marker
-            }><div/><span>${i + 1}</span></div>`,
-            className: `${styles.icon}`
+        L.control
+          .zoom({
+            position: 'bottomleft'
           })
-        }).addTo(a_map)
-        document
-          .querySelector('#iconMap' + (i + 1).toString() + ' > div')
-          .addEventListener('click', e => {
-            for (let y = 0; y < dataSet.length; y++) {
-              document
-                .querySelector('#iconMap' + (y + 1).toString())
-                .querySelector('div')
-                .classList.remove(styles.selected)
+          .addTo(a_map)
 
-              if (i === y) {
+        setMap(a_map)
+      }
+      if (map) {
+        for (let i = 0; i < boatsData?.length; i++) {
+          let marker = boatsData[i]
+          L.marker([marker.position.x, marker.position.y], {
+            icon: L.divIcon({
+              html: `<div id="iconMap${i + 1}"><div class=${
+                styles.marker
+              }><div/><span>${i + 1}</span></div>`,
+              className: `${styles.icon}`
+            })
+          }).addTo(map)
+          document
+            .querySelector('#iconMap' + (i + 1).toString() + ' > div')
+            .addEventListener('click', e => {
+              for (let y = 0; y < boatsData?.length; y++) {
                 document
                   .querySelector('#iconMap' + (y + 1).toString())
                   .querySelector('div')
-                  .classList.add(styles.selected)
-              }
-            }
-            props.setSelectedBoat(i)
-          })
-      }
+                  .classList.remove(styles.selected)
 
-      setMap(a_map)
+                if (i === y) {
+                  document
+                    .querySelector('#iconMap' + (y + 1).toString())
+                    .querySelector('div')
+                    .classList.add(styles.selected)
+                }
+              }
+              let selected = props.setSelectedBoat
+              selected(i)
+            })
+        }
+      }
     }
-    if(!map)
     createMap()
-  }, [props, setMap, map])
+  }, [props.setSelectedBoat, boatsData, setMap, map])
+
   return (
     <div className={`${styles.disposition}`}>
       <div id='map' className={`${styles.map}`} />

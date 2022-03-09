@@ -1,16 +1,7 @@
-import MeteoWidget from "./MeteoWidget"
-import MuseumStateWidget from "./MuseumStateWidget"
+import styles from './HeaderWidget.module.css'
 
-import styles from "./HeaderWidget.module.css"
-
-
-const HeaderWidget = () => {
-    return (
-        <div className={`${styles.disposition}`}>
-        <MuseumStateWidget/>
-        <MeteoWidget/>
-        </div>
-    )
+const HeaderWidget = props => {
+  return <div className={`${styles.disposition}`}>{props.widgets}</div>
 }
 
 export default HeaderWidget

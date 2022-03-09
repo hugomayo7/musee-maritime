@@ -1,12 +1,8 @@
 import styles from './MeteoWidget.module.css'
-import { useEffect, useRef, useState } from 'react'
-import getWeatherApi from '../../api/main/weather'
+import { useEffect, useRef } from 'react'
 import loadingIcon from '../../static/icons/loading.svg'
 
-function MeteoWidget () {
-  const [temp, setTemp] = useState('--')
-  const [conditions, setConditions] = useState('')
-  const [icon, setIcon] = useState(loadingIcon)
+function MeteoWidget (props) {
   const mounted = useRef(false)
 
   useEffect(() => {
@@ -14,32 +10,25 @@ function MeteoWidget () {
     return () => (mounted.current = false)
   })
 
-  useEffect(() => {
-    const fetchData = async () => {
-        await getWeatherApi(e => {
-        if (mounted.current) {
-          setTemp(e.temp)
-          console.log(e.temp)
-          setConditions(e.currentConditions)
-          setIcon(
-            'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
-              e.icon +
-              '.svg'
-          )
-        }
-      })
-    }
-    fetchData()
-  }, [])
-
   return (
     <div className={`${styles.disposition}`}>
       <div className={`${styles.texts}`}>
-        <span>{conditions} </span>
-        {temp !== '--' ? <span className={`${styles.separation}`} /> : <></>}
-        <span> {temp}°C</span>
+        <span>{props.meteo.state ? props.meteo.data.conditions : ''}</span>
+        {props.meteo.state === -1 ? (
+          <span className={`${styles.separation}`} />
+        ) : (
+          <></>
+        )}
+        <span>
+          {' '}
+          {props.meteo.state === -1 ? '--' : props.meteo.data.temp}°C
+        </span>
       </div>
-      <img src={icon} alt='Affichage de la météo' className={`${styles.img}`} />
+      <img
+        src={props.meteo.state === -1 ? loadingIcon : props.meteo.data.icon}
+        alt='Affichage de la météo'
+        className={`${styles.img}`}
+      />
     </div>
   )
 }
