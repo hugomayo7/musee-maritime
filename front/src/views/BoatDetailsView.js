@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import style from "./BoatDetailsView.module.css"
-import Header from "../components/Header"
+import style from './BoatDetailsView.module.css'
+import Header from '../components/Header'
 
-
-export default function BoatDetailsView(props) {
-
+export default function BoatDetailsView (props) {
   const [boat, setBoat] = useState(props.boat)
-  
+
   return (
     <div>
-      <Header title={boat?.name}/>
-      </div>
+      <Header title={boat?.name} />
+    </div>
   )
 }
