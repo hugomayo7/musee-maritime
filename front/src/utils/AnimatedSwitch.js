@@ -4,18 +4,29 @@ import HomeView from '../views/HomeView'
 import BoatsView from '../views/BoatsView'
 import GalleryView from '../views/GalleryView'
 import BoatDetailsView from '../views/BoatDetailsView'
-import {Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
-export default function AnimatedSwitch () {
+export default function AnimatedSwitch (props) {
+
+
   return (
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<HomeView />} />
-          <Route path='accueil' element={<Navigate replace to='/' />} />
-          <Route path='bateaux' element={<BoatsView />} />
-          <Route path='gallerie' element={<GalleryView />} />
-          <Route path='bateaux/:id' element={<BoatDetailsView/>}/>
-        </Route>
-      </Routes>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<HomeView boatsData={props?.boatsData} />} />
+        <Route path='accueil' element={<Navigate replace to='/' />} />
+        <Route
+          path='bateaux'
+          element={<BoatsView boatsData={props?.boatsData} />}
+        />
+        <Route
+          path='gallerie'
+          element={<GalleryView boatsData={props?.boatsData} />}
+        />
+        <Route
+          path='bateaux/:id'
+          element={<BoatDetailsView boatsData={props?.boatsData} />}
+        />
+      </Route>
+    </Routes>
   )
 }

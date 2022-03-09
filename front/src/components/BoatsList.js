@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import BoatCard from './BoatCard'
 import styles from './BoatsList.module.css'
-import myPromise from '../tests/api/boats'
 import loadingIcon from '../static/icons/loading.svg'
 
-export default function BoatsList () {
-  const [boatsData, setBoatsData] = useState()
+export default function BoatsList (props) {
+
   const mounted = useRef(false)
   let [content, setContent] = useState(null)
 
@@ -15,21 +14,10 @@ export default function BoatsList () {
   })
 
   useEffect(() => {
-    const fetchData = async () => {
-      await myPromise.then(e => {
-        if (mounted.current) {
-          setBoatsData(e.boatsList)
-        }
-      })
-    }
-    fetchData()
-  }, [setBoatsData])
-
-  useEffect(() => {
-    if (mounted && boatsData) {
+    if (mounted && props.boatsData) {
       let content = []
-      for (let i = 0; i < boatsData.length; i++) {
-        let boats = [boatsData[i], boatsData[i + 1]]
+      for (let i = 0; i < props.boatsData.length; i++) {
+        let boats = [props.boatsData[i], props.boatsData[i + 1]]
         content.push(
           <div key={i}>
             <BoatCard boat={boats[0]}></BoatCard>
@@ -40,7 +28,7 @@ export default function BoatsList () {
       }
       setContent(content)
     }
-  }, [boatsData, setContent])
+  }, [props.boatsData, setContent])
 
   return content ? (
     <div className={`${styles.disposition}`}>{content}</div>
