@@ -24,26 +24,6 @@
     height: 100%;
     border-radius: 4px;
 }
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 0 .5rem 0 0;
-}
-
-.open {
-    background-color: #00C72C;
-}
-
-.close {
-    background-color: red;
-}
-
-.loading {
-    background-color: orange;
-}
-
 .button {
     width: 100%;
     display: flex;
@@ -95,18 +75,6 @@
     margin-bottom: 7px;
 }
 
-.description {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 1rem;
-}
-
-.descriptiontext {
-    font-size: 12px;
-}
 
 .skel {
     height: 100%;

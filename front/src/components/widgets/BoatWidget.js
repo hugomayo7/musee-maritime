@@ -3,6 +3,7 @@ import myPromise from '../../tests/api/boats'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Skel from '../Skel'
+import BoatState from './BoatState'
 
 function BoatWidget (props) {
   const [boatsData, setBoatsData] = useState()
@@ -45,20 +46,7 @@ function BoatWidget (props) {
               </span>
               <span className={`${styles.nameboat}`}>{boatData?.name}</span>
             </div>
-            <div className={`${styles.description}`}>
-              <span
-                className={`${styles.dot} ${
-                  boatData?.state === 1
-                    ? styles.state
-                    : boatData?.state === 0
-                    ? styles.close
-                    : styles.loading
-                }`}
-              />
-              <span className={`${styles.descriptiontext}`}>
-                {boatData?.stateText}
-              </span>
-            </div>
+          <BoatState boatData={boatData}/>
           </div>
           <Link to={'bateaux/' + boatsData?.id} className={`${styles.button}`}>
             <button>&gt; En savoir plus</button>

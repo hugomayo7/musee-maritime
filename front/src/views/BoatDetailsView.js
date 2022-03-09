@@ -3,7 +3,7 @@ import style from './BoatDetailsView.module.css'
 import Header from '../components/Header'
 
 export default function BoatDetailsView (props) {
-  const [boat, setBoat] = useState(props.boat)
+  const boat = props.boat
 
   return (
     <div>

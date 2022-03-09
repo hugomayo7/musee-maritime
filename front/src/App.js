@@ -63,7 +63,7 @@ function App () {
 
     setInterval(() => {
       fetchData()
-    }, 1000)
+    }, 10000)
   }, [setMeteo])
 
   return (
