@@ -7,8 +7,8 @@ let json = {
             "id": 1,
             "name": "France 1",
             "historique": "Le France 1 blablabla",
-            "open": 1,
-            "openText": "Montée à bord autorisée",
+            "state": 1,
+            "stateText": "Montée à bord autorisée",
             "characteristics": {
                 "type": "bateau",
                 "startYear": "1989",
@@ -32,8 +32,8 @@ let json = {
             "id": 2,
             "name": "Saint-Gilles",
             "historique": "Le Saint-Gilles est un remorqueur portuaire et de haute mer construit par les Ateliers et Chantiers de La Rochelle-La Pallice (ACRP) en 1958",
-            "open": 1,
-            "openText": "Montée à bord autorisée",
+            "state": 1,
+            "stateText": "Montée à bord autorisée",
             "characteristics": {
                 "type": "remorqueur",
                 "startYear": "1979",
