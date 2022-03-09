@@ -37,9 +37,9 @@ function MapWidget (props) {
           let marker = boatsData[i]
           L.marker([marker.position.lat, marker.position.lgn], {
             icon: L.divIcon({
-              html: `<div id="iconMap${i + 1}"><div class=${
+              html: `<div id="iconMap${marker.id}"><div class=${
                 styles.marker
-              }><div/><span>${i + 1}</span></div>`,
+              }><div/><span>${marker.id}</span></div>`,
               className: `${styles.icon}`
             })
           }).addTo(map)
