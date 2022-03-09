@@ -8,7 +8,10 @@ def main():
     filename = sys.argv[1]
     ss = open(filename, 'r').read()
     m = re.match(pattern, ss)
-    if m == None: raise Exception("conventional commit validation failed")
+    if m == None: 
+        print("\033[1;37;41m conventional commit validation failed (ex: <type>: <message>)\nDifferents type :\n - docs\n - feat\n - fix\n - update\n \033[0;37;40m")
+        raise Exception()
 
 if __name__ == "__main__":
     main()
+ 
