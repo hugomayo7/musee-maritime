@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './BoatState.module.css'
 
 export default function BoatState (props) {
+  
   return (
     <div className={`${styles.description}`}>
       <span
