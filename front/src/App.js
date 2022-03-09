@@ -2,12 +2,13 @@ import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import NavbarView from './views/NavbarView'
 import AnimatedSwitch from './utils/AnimatedSwitch'
-import fetchBoatsPromise from './tests/api/boats'
-import fetchMuseumPromise from './tests/api/museum'
-import fetchMeteoPromise from './tests/api/meteo'
+import fetchBoatsPromise from './api/tests/boats'
+import fetchMuseumPromise from './api/tests/museum'
+// import fetchMeteoPromise from './api/tests/meteo'
 import { useState, useEffect } from 'react'
+import fetchWeatherPromise from './api/main/weather'
 
-function App () {
+function App() {
   const [boatsData, setBoatsData] = useState()
   const [museum, setMuseum] = useState({ state: -1 })
   const [meteo, setMeteo] = useState({ state: -1, data: {} })
@@ -45,15 +46,15 @@ function App () {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchMeteoPromise.then(e => {
+      await fetchWeatherPromise.then(e => {
         setMeteo({
           state: 1,
           data: {
-            temp: e.meteo.temp,
-            conditions: e.meteo.currentConditions,
+            temp: e.temp,
+            conditions: e.currentConditions,
             icon:
               'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
-              e.meteo.icon +
+              e.icon +
               '.svg'
           }
         })

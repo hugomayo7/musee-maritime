@@ -1,12 +1,7 @@
 import styles from './MuseumStateWidget.module.css'
-<<<<<<< HEAD
-import myPromise from '../../api/tests/museum'
-import { useEffect, useRef, useState } from 'react'
-=======
 import { useEffect, useRef } from 'react'
 
 function MuseumStateWidget (props) {
->>>>>>> d376d2f36aa4a818c5365f764370dcc6b4fdc05f
 
   const mounted = useRef(false)
 
@@ -14,8 +9,6 @@ function MuseumStateWidget (props) {
     mounted.current = true
     return () => (mounted.current = false)
   })
-
-  
 
   
   return (
