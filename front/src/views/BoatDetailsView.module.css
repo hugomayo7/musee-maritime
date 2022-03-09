@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center !important;
+}
+
+.dispositioncenter > * > * {
+    margin-top: 0 !important;
 }
 
 .dispositioncenter span {
