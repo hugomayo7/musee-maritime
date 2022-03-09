@@ -1,5 +1,5 @@
 import styles from './MuseumStateWidget.module.css'
-import myPromise from '../../tests/api/museum'
+import myPromise from '../../api/tests/museum'
 import { useEffect, useRef, useState } from 'react'
 
 function MuseumStateWidget () {

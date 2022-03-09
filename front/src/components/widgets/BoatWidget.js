@@ -1,5 +1,5 @@
 import styles from './BoatWidget.module.css'
-import myPromise from '../../tests/api/boats'
+import myPromise from '../../api/tests/boats'
 import { useEffect, useRef, useState } from 'react'
 import Skel from '../Skel'
 

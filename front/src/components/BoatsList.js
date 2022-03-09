@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import BoatCard from './BoatCard'
 import styles from './BoatsList.module.css'
-import myPromise from '../tests/api/boats'
+import myPromise from '../api/tests/boats'
 import loadingIcon from '../static/icons/loading.svg'
 
 export default function BoatsList () {
