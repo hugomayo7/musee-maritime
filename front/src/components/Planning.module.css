@@ -1,0 +1,15 @@
+.disposition {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid #38679D 2px;
+}
+
+.visittime > span:nth-child(1) {
+    color: #38679D;
+}
+
+.visittime {
+    margin: .5rem 1rem;
+    margin-bottom: .75rem;
+    font-size: 20px;
+}

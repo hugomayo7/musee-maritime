@@ -1,7 +1,10 @@
 import React from 'react'
+import TastimonialTextWidget from './widgets/TastimonialTextWidget'
 
-export default function TastimonialsTexts() {
+export default function TastimonialsTexts () {
   return (
-    <div>TastimonialsTexts</div>
+    <>
+      <TastimonialTextWidget />
+    </>
   )
 }

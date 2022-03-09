@@ -1,7 +1,14 @@
 import React from 'react'
+import TastimonialAudioWidget from './widgets/TastimonialAudioWidget'
+import BasicTitleWidget from './widgets/BasicTitleWidget'
+
+
 
 export default function TastimonialsAudios() {
   return (
-    <div>TastimonialsAudios</div>
+    <>
+    <BasicTitleWidget text="...En audios"/>
+    <TastimonialAudioWidget/>
+    </>
   )
 }

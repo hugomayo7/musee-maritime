@@ -1,10 +1,15 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import styles from './BoatDetailsView.module.css'
 import Header from '../components/Header'
 import BoatState from '../components/widgets/BoatState'
 import HeaderWidget from '../components/widgets/HeaderWidget'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import Planning from "../components/Planning"
+import Historic from "../components/Historic"
+import Characteristics from "../components/Characteristics"
+import Tastimonials from "../components/Tastimonials"
+
 
 export default function BoatDetailsView (props) {
   const { id } = useParams()
@@ -32,6 +37,10 @@ export default function BoatDetailsView (props) {
       <div className={styles.dispositioncenter}>
         <HeaderWidget widgets={widgets} />
       </div>
+      <Planning planning={boat?.visits}/>
+      <Historic historic={boat?.historic}/>
+      <Characteristics characteristics={boat?.characteristics}/>
+      <Tastimonials tastimonials={boat?.tastimonials}/>
     </div>
   )
 }
