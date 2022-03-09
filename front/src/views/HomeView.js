@@ -7,7 +7,7 @@ import MuseumStateWidget from '../components/widgets/MuseumStateWidget'
 import MeteoWidget from '../components/widgets/MeteoWidget'
 
 const HomeView = (props) => {
-  const widgets = [(<MuseumStateWidget key={1} museum={props.museum} />), (<MeteoWidget key={2} />)]
+  const widgets = [(<MuseumStateWidget key={1} museum={props.museum} />), (<MeteoWidget key={2} meteo={props.meteo} />)]
 
   return (
     <div className={styles.maindiv}>

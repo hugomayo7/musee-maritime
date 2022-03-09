@@ -12,7 +12,7 @@ export default function AnimatedSwitch (props) {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route index element={<HomeView boatsData={props?.boatsData} museum={props?.museum} />} />
+        <Route index element={<HomeView boatsData={props?.boatsData} museum={props?.museum} meteo={props?.meteo} />} />
         <Route path='accueil' element={<Navigate replace to='/' />} />
         <Route
           path='bateaux'
