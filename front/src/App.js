@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchWeatherPromise.then(e => {
+      await fetchWeatherPromise().then(e => {
         setMeteo({
           state: 1,
           data: {

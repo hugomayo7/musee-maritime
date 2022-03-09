@@ -35,7 +35,7 @@ function MapWidget (props) {
       if (map) {
         for (let i = 0; i < boatsData?.length; i++) {
           let marker = boatsData[i]
-          L.marker([marker.position.x, marker.position.y], {
+          L.marker([marker.position.lat, marker.position.lgn], {
             icon: L.divIcon({
               html: `<div id="iconMap${i + 1}"><div class=${
                 styles.marker

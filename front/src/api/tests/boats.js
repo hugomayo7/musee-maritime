@@ -6,7 +6,7 @@ let json = {
         {
             "id": 1,
             "name": "France 1",
-            "historique": "Le France 1 blablabla",
+            "history": "Le France 1 blablabla",
             "state": 1,
             "stateText": "Montée à bord autorisée",
             "characteristics": {
@@ -21,19 +21,56 @@ let json = {
                 "historicMonumentRankDate": "06/06/1993",
                 "lastRestore": "2009 - 2012"
             },
-            "audio": "https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/7e793d26c12d4915b0e62eb87327ea6a.mp3",
-            "image": image1,
+            "tastimonials": {
+                "audios": ["https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/bba1bb3733664358bb09516d85b35914.mp3"
+                ],
+                "texts": [
+                    "Pour l'avoir visité je confirme, ce bateau en vaux la peine !"
+                ],
+                "photos": [
+                    {
+                        "link": "https://cdn.discordapp.com/attachments/948214708006166568/948224426179199016/Cpt_de_frC3A9gate_Leverger.png",
+                        "text": "Cette image à été prise en plein océan"
+                    }
+                ]
+            },
+            "visits": {
+                "week": {
+                    "Mercredi":{
+                        "max": 10,
+                        "actu": 0
+                    },
+                    "Jeudi":{
+                        "max": 10,
+                        "actu": 2
+                    },
+                    "Vendredi":{
+                        "max": 10,
+                        "actu": 1
+                    },
+                    "Samedi":{
+                        "max": 10,
+                        "actu": 10
+                    },
+                    "Dimanche":{
+                        "max": 10,
+                        "actu": 6
+                    }
+                },
+                "visitTime": 30
+            },
             "position": {
-                "x": 46.151209,
-                "y": -1.151758
-            }
+                "lat": 46.151209,
+                "lgn": -1.151758
+            },
+            "image": image1
         },
         {
             "id": 2,
             "name": "Saint-Gilles",
-            "historique": "Le Saint-Gilles est un remorqueur portuaire et de haute mer construit par les Ateliers et Chantiers de La Rochelle-La Pallice (ACRP) en 1958",
-            "state": 1,
-            "stateText": "Montée à bord autorisée",
+            "history": "Le Saint-Gilles est un remorqueur portuaire et de haute mer construit par les Ateliers et Chantiers de La Rochelle-La Pallice (ACRP) en 1958",
+            "state": 0,
+            "stateText": "Montée à bord non autorisée",
             "characteristics": {
                 "type": "remorqueur",
                 "startYear": "1979",
@@ -46,15 +83,18 @@ let json = {
                 "historicMonumentRankDate": "12/03/1987",
                 "lastRestore": "2001 - 2008"
             },
-            "audio": "https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/bba1bb3733664358bb09516d85b35914.mp3",
-            "image": image2,
+            "tastimonials": {
+                "audio": "https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/bba1bb3733664358bb09516d85b35914.mp3"
+            },
             "position": {
-                "x": 46.241209,
-                "y": -1.511758
-            }
+                "lat": 46.152209,
+                "lgn": -1.152368
+            },
+            "image": image2
         }
     ]
 }
+
 
 
 const myPromise = new Promise((resolve, reject) => {
