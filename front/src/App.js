@@ -18,6 +18,8 @@ function App () {
         setBoatsData(e.boatsList)
       })
     }
+    fetchData()
+
     setInterval(() => {
       fetchData()
     }, 10000)
@@ -57,6 +59,8 @@ function App () {
         })
       })
     }
+    fetchData()
+
     setInterval(() => {
       fetchData()
     }, 1000)
