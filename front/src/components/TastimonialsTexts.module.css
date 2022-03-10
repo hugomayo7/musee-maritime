@@ -1,0 +1,14 @@
+.disposition {
+    display: flex;
+    flex-direction: row;
+}
+
+.img{
+    height:100%;
+    width:24px;
+    margin-top: .5rem;
+}
+
+.text{
+    margin-top: 30px;
+}

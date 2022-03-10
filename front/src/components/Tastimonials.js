@@ -3,15 +3,16 @@ import TastimonialsTexts from './TastimonialsTexts'
 import TastimonialsAudios from './TastimonialsAudios'
 import TastimonialsPhotos from './TastimonialsPhotos'
 import BasicTitleWidget from './widgets/BasicTitleWidget'
+import styles from "./Tastimonials.module.css"
 
 
-export default function Tastimonials () {
+export default function Tastimonials (props) {
   return (
-    <>
+    <div className={styles.container}>
       <BasicTitleWidget text='Quelques témoignages...' />
-      <TastimonialsTexts />
-      <TastimonialsAudios />
+      <TastimonialsTexts texts={props?.tastimonials?.texts}/>
+      <TastimonialsAudios audios={props?.tastimonials?.audios}/>
       <TastimonialsPhotos />
-    </>
+    </div>
   )
 }

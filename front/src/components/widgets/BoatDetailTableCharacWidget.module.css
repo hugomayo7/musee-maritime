@@ -1,11 +1,9 @@
-
 .loadingrow {
     background-color: rgb(230, 230, 230);
     animation-name: main-anim;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }
-
 
 @keyframes main-anim {
     from {
@@ -22,33 +20,83 @@
 }
 
 .mainicon {
-    width:100%;
-    background:linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.692), white) !important;
-    height:100px;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.692), white);
+    height: 100px;
     border-radius: 0 0 !important;
     position: absolute !important;
     bottom: 0;
     align-items: flex-end !important;
     display: flex;
     justify-content: center;
-    align-items:flex-end;
+    align-items: flex-end;
 }
 
 .mainicon > * {
-width:100%;
+    width: 100%;
+    opacity: 1;
+}
+
+.mainicondes > * {
+    opacity: 0.5;
+    transition: opcity .5s ease-in-out;
 }
 
 .mainicondes {
-    background:linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) !important;
-    opacity: 0.5;
-    transition: all 0.5s ease-in-out;
+    animation-name: mainanimation;
+    animation-duration: .4s;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0));
 }
 
-.container{
+@keyframes mainanimation {
+    from {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.692), white);
+    }
+
+    10% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.904));
+    }
+
+    20% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+    }
+
+    30% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.7));
+    }
+
+    40% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.6));
+    }
+
+    50% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.5));
+    }
+
+    60% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.4));
+    }
+
+    70% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.3));
+    }
+
+    80% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.2));
+    }
+    
+    90% {
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.1));
+    }
+
+    to{
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0));
+    }
+}
+
+.container {
     position: relative;
 }
-
-
 
 .nobrdr {
     border-radius: 0 !important;

@@ -5,7 +5,7 @@ import BoatDetailTableCharacWidget from "./widgets/BoatDetailTableCharacWidget"
 
 export default function Characteristics (props) {
   return props?.characteristics ? (
-    <BoatDetailTableCharacWidget  characteristics={props.characteristics}/>
+    <BoatDetailTableCharacWidget  characteristics={props.characteristics} key="characteristics"/>
   ) : (
     <SpinnerDotWidget />
   )

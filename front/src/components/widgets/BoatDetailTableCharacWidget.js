@@ -16,7 +16,7 @@ export default function BoatDetailTableCharacWidget (props) {
 
   return (
     <div className={styles.container}>
-      <TableContainer component={Paper} className={styles.nobrdr}>
+      <TableContainer component={Paper} className={styles.nobrdr} key="table">
         <Table aria-label='simple header'>
           {/* <TableHead>
             <TableRow>
@@ -39,15 +39,17 @@ export default function BoatDetailTableCharacWidget (props) {
                           backgroundColor: '#9EC0E7'
                         }
                       }}
+                      key={i}
                     >
                       <TableCell
                         component='th'
                         scope='row'
                         sx={{ width: '50%' }}
+                        key={row + "0"}
                       >
                         {row}
                       </TableCell>
-                      <TableCell align='right'>
+                      <TableCell align='right' key={row + "1"}>
                         {props?.characteristics[row]}
                       </TableCell>
                     </TableRow>
@@ -76,7 +78,7 @@ export default function BoatDetailTableCharacWidget (props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Collapse in={open} timeout='auto' className={styles.tbody} unmountOnExit>
+      <Collapse in={open} timeout='auto' className={styles.tbody} unmountOnExit key="collapse">
         <TableContainer component={Paper} className={styles.nobrdr}>
           <Table aria-label='simple table'>
             <TableBody>
@@ -93,15 +95,17 @@ export default function BoatDetailTableCharacWidget (props) {
                           backgroundColor: '#9EC0E7'
                         }
                       }}
+                      key={i}
                     >
                       <TableCell
                         component='th'
                         scope='row'
                         sx={{ width: '50%' }}
+                        key={row + "0"}
                       >
                         {row}
                       </TableCell>
-                      <TableCell align='right'>
+                      <TableCell align='right' key={row + "1"}>
                         {props?.characteristics[row]}
                       </TableCell>
                     </TableRow>
@@ -130,7 +134,7 @@ export default function BoatDetailTableCharacWidget (props) {
           </Table>
         </TableContainer>
       </Collapse>
-      <div className={`${styles.mainicon} ${open ? styles.mainicondes : ''}`}>
+      <div className={`${styles.mainicon} ${open ? styles.mainicondes : ''}`} key="icon">
         <IconButton
           aria-label='expand row'
           size='small'  
