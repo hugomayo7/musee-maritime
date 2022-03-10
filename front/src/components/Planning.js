@@ -6,7 +6,6 @@ export default function Planning(props) {
   return (
     <div className={styles.disposition}>
       <BoatDetailTableWidget timetables={props?.planning?.week}/>
-      <div className={styles.visittime}><span>Durée de la visite : </span><span>{props?.planning?.visitTime?props?.planning?.visitTime + "min" : ""}</span></div>
     </div>
   )
 }

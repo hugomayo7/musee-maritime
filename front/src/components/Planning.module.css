@@ -1,7 +1,6 @@
 .disposition {
     display: flex;
     flex-direction: column;
-    border-bottom: solid #38679D 2px;
 }
 
 .visittime > span:nth-child(1) {

@@ -10,6 +10,7 @@ import Historic from '../components/Historic'
 import Characteristics from '../components/Characteristics'
 import Tastimonials from '../components/Tastimonials'
 import BasicTitleWidget from '../components/widgets/BasicTitleWidget'
+import ChronoWidget from '../components/widgets/ChronoWidget'
 
 export default function BoatDetailsView (props) {
   const { id } = useParams()
@@ -37,7 +38,7 @@ export default function BoatDetailsView (props) {
       <div className={styles.dispositioncenter}>
         <HeaderWidget widgets={widgets} />
       </div>
-      <BasicTitleWidget text='Planning des visites' />
+      <BasicTitleWidget text={'Planning des visites'} widget={<ChronoWidget time={boat?.visits?.visitTime} />} />
       <Planning planning={boat?.visits} />
       <BasicTitleWidget text='Historique' />
       <div className={styles.basictext}>
