@@ -11,15 +11,15 @@ let json = {
             "stateText": "Montée à bord autorisée",
             "characteristics": {
                 "type": "bateau",
-                "startYear": "1989",
-                "materials" : "Acier",
-                "constructor": "Ateliers et chantiers de Dieppe",
-                "initialOwner": "ARPV",
-                "initalHarbor": "La Rochelle",
-                "collectionEntry": "1993",
-                "buyPrice": "Private",
-                "historicMonumentRankDate": "06/06/1993",
-                "lastRestore": "2009 - 2012"
+                "année de lancement": "1989",
+                "matériaux" : "Acier",
+                "constructeur": "Ateliers et chantiers de Dieppe",
+                "détenteur initial": "ARPV",
+                "port initial": "La Rochelle",
+                "mise en collection": "1993",
+                "prix d'achat": "Private",
+                "date du rang de monument historique": "06/06/1993",
+                "dernière restoration": "2009 - 2012"
             },
             "tastimonials": {
                 "audios": ["https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/bba1bb3733664358bb09516d85b35914.mp3"

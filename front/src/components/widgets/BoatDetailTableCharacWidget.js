@@ -19,34 +19,43 @@ export default function BoatDetailTableCharacWidget (props) {
     <div className={styles.container}>
       <TableContainer component={Paper} className={styles.nobrdr}>
         <Table aria-label='simple header'>
-          <TableHead>
-            {/* <TableRow>
+          {/* <TableHead>
+            <TableRow>
               <TableCell>Catégorie</TableCell>
               <TableCell align='right'>Wow</TableCell>
-            </TableRow> */}
-          </TableHead>
+            </TableRow>
+          </TableHead> */}
           <TableBody>
             {props?.characteristics ? (
               <>
-              {Object.keys(props?.characteristics).map((row, i) => (
-                  i < 4 ?
-                <TableRow
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component='th' scope='row'>
-                    {row}
-                  </TableCell>
-                  <TableCell align='right'>
-                    {
-                      props?.characteristics[
-                        row
-                      ]
-                    }
-                  </TableCell>
-                </TableRow>
-                : 
-                <></>
-              ))}
+                {Object.keys(props?.characteristics).map((row, i) =>
+                  i < 4 ? (
+                    <TableRow
+                      sx={{
+                        '&:last-child td, &:last-child th': { border: 0 },
+                        '&:nth-of-type(odd)': {
+                          backgroundColor: '#DADADA'
+                        },
+                        '&': {
+                          backgroundColor: '#9EC0E7'
+                        }
+                      }}
+                    >
+                      <TableCell
+                        component='th'
+                        scope='row'
+                        sx={{ width: '50%' }}
+                      >
+                        {row}
+                      </TableCell>
+                      <TableCell align='right'>
+                        {props?.characteristics[row]}
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    <></>
+                  )
+                )}
               </>
             ) : (
               <TableRow
@@ -73,21 +82,34 @@ export default function BoatDetailTableCharacWidget (props) {
           <Table aria-label='simple table'>
             <TableBody>
               {props?.characteristics ? (
-                Object.keys(props?.characteristics).map((row, i) => (
-                    i >= 4 ?
-                  <TableRow
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell component='th' scope='row'>
-                      {row}
-                    </TableCell>
-                    <TableCell align='right'>
-                      {props?.characteristics[row]}
-                    </TableCell>
-                  </TableRow>
-                  : 
-                  <></>
-                ))
+                Object.keys(props?.characteristics).map((row, i) =>
+                  i >= 4 ? (
+                    <TableRow
+                      sx={{
+                        '&:last-child td, &:last-child th': { border: 0 },
+                        '&:nth-of-type(odd)': {
+                          backgroundColor: '#DADADA'
+                        },
+                        '&': {
+                          backgroundColor: '#9EC0E7'
+                        }
+                      }}
+                    >
+                      <TableCell
+                        component='th'
+                        scope='row'
+                        sx={{ width: '50%' }}
+                      >
+                        {row}
+                      </TableCell>
+                      <TableCell align='right'>
+                        {props?.characteristics[row]}
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    <></>
+                  )
+                )
               ) : (
                 <TableRow
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -109,15 +131,15 @@ export default function BoatDetailTableCharacWidget (props) {
           </Table>
         </TableContainer>
       </Collapse>
-
-      <IconButton
-        aria-label='expand row'
-        size='small'
-        className={`${styles.mainicon} ${open ? styles.mainicondes : ""}`}
-        onClick={() => setOpen(!open)}
-      >
-        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-      </IconButton>
+      <div className={`${styles.mainicon} ${open ? styles.mainicondes : ''}`}>
+        <IconButton
+          aria-label='expand row'
+          size='small'  
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+        </IconButton>
+      </div>
     </div>
   )
 }
