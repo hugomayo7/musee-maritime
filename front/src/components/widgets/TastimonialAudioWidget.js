@@ -1,7 +1,5 @@
 import style from './TastimonialAudioWidget.module.css'
-import React, { useEffect, useRef, useState } from 'react'
-import IconButton from '@mui/material/IconButton'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import React from 'react'
 import ReactAudioPlayer from 'react-audio-player'
 
 export default function TastimonialAudioWidget (props) {

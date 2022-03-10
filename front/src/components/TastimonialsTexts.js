@@ -4,10 +4,10 @@ import styles from './TastimonialsTexts.module.css'
 
 export default function TastimonialsTexts (props) {
   return (
-    <div className={styles.disposition}>
-      {props?.texts?.map((el, i) => {
+    <div>
+      {props?.texts?.map(el => {
         return (
-          <>
+          <div className={styles.disposition} key={el}>
             <img
               src={
                 'https://media.discordapp.net/attachments/948214708006166568/951534097782677594/d49f8670-0194-450c-86b9-bca7159df756.png'
@@ -16,9 +16,9 @@ export default function TastimonialsTexts (props) {
               className={styles.img}
             ></img>
             <div className={styles.text}>
-            <TastimonialTextWidget key={i} text={el}/>
+              <TastimonialTextWidget text={el} />
             </div>
-          </>
+          </div>
         )
       })}
     </div>

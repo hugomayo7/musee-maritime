@@ -31,7 +31,7 @@ let json = {
           }
         ],
         texts: [
-          "Pour l'avoir visité je confirme, ce bateau en vaut la peine !"
+          "Pour l'avoir visité je confirme, ce bateau en vaut la peine !",
         ],
         photos: [
           {
@@ -107,7 +107,7 @@ let json = {
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve(json)
-  }, 7000)
+  }, 3000)
 })
 
 export default myPromise

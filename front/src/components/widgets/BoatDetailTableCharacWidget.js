@@ -16,7 +16,7 @@ export default function BoatDetailTableCharacWidget (props) {
 
   return (
     <div className={styles.container}>
-      <TableContainer component={Paper} className={styles.nobrdr} key="table">
+      <TableContainer component={Paper} className={styles.nobrdr}>
         <Table aria-label='simple header'>
           {/* <TableHead>
             <TableRow>
@@ -28,7 +28,7 @@ export default function BoatDetailTableCharacWidget (props) {
             {props?.characteristics ? (
               <>
                 {Object.keys(props?.characteristics).map((row, i) =>
-                  i < 4 ? (
+                  {if(i < 4) return (
                     <TableRow
                       sx={{
                         '&:last-child td, &:last-child th': { border: 0 },
@@ -39,23 +39,24 @@ export default function BoatDetailTableCharacWidget (props) {
                           backgroundColor: '#9EC0E7'
                         }
                       }}
-                      key={i}
+                      key={row}
                     >
                       <TableCell
                         component='th'
                         scope='row'
                         sx={{ width: '50%' }}
-                        key={row + "0"}
+                        key={row + '0'}
                       >
                         {row}
                       </TableCell>
-                      <TableCell align='right' key={row + "1"}>
+                      <TableCell align='right' key={row + '1'}>
                         {props?.characteristics[row]}
                       </TableCell>
                     </TableRow>
-                  ) : (
-                    <></>
+                    
                   )
+                  else
+                  return false}
                 )}
               </>
             ) : (
@@ -78,14 +79,20 @@ export default function BoatDetailTableCharacWidget (props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Collapse in={open} timeout='auto' className={styles.tbody} unmountOnExit key="collapse">
+      <Collapse
+        in={open}
+        timeout='auto'
+        className={styles.tbody}
+        unmountOnExit
+        key='collapse'
+      >
         <TableContainer component={Paper} className={styles.nobrdr}>
           <Table aria-label='simple table'>
             <TableBody>
               {props?.characteristics ? (
-                Object.keys(props?.characteristics).map((row, i) =>
-                  i >= 4 ? (
-                    <TableRow
+                Object.keys(props?.characteristics).map((row, i) => {
+                  if (i >= 4)
+                    return (<TableRow
                       sx={{
                         '&:last-child td, &:last-child th': { border: 0 },
                         '&:nth-of-type(odd)': {
@@ -95,24 +102,23 @@ export default function BoatDetailTableCharacWidget (props) {
                           backgroundColor: '#9EC0E7'
                         }
                       }}
-                      key={i}
+                      key={row}
                     >
                       <TableCell
                         component='th'
                         scope='row'
                         sx={{ width: '50%' }}
-                        key={row + "0"}
+                        key={row + '0'}
                       >
                         {row}
                       </TableCell>
-                      <TableCell align='right' key={row + "1"}>
+                      <TableCell align='right' key={row + '1'}>
                         {props?.characteristics[row]}
                       </TableCell>
-                    </TableRow>
-                  ) : (
-                    <></>
-                  )
-                )
+                    </TableRow>)
+                    else
+                    return false
+                })
               ) : (
                 <TableRow
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -134,10 +140,13 @@ export default function BoatDetailTableCharacWidget (props) {
           </Table>
         </TableContainer>
       </Collapse>
-      <div className={`${styles.mainicon} ${open ? styles.mainicondes : ''}`} key="icon">
+      <div
+        className={`${styles.mainicon} ${open ? styles.mainicondes : ''}`}
+        key='icon'
+      >
         <IconButton
           aria-label='expand row'
-          size='small'  
+          size='small'
           onClick={() => setOpen(!open)}
         >
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
