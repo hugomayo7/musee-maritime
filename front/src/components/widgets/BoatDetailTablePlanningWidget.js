@@ -10,9 +10,9 @@ import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import styles from './BoatDetailTableWidget.module.css'
+import styles from './BoatDetailTablePlanningWidget.module.css'
 
-export default function BoatDetailTableWidget (props) {
+export default function BoatDetailTablePlanningWidget (props) {
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -66,7 +66,6 @@ export default function BoatDetailTableWidget (props) {
       <IconButton
         aria-label='expand row'
         size='small'
-        className={styles.mainicon}
         onClick={() => setOpen(!open)}
       >
         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
