@@ -4,11 +4,19 @@ import BasicTitleWidget from './widgets/BasicTitleWidget'
 
 
 
-export default function TastimonialsPhotos() {
+export default function TastimonialsPhotos(props) {
   return (
     <>
     <BasicTitleWidget text="...En photos"/>
-    <TastimonialPhotoWidget/>
+    <div>
+        {props?.photos?.map((el, i) => {
+          return (
+            <div key={i}>
+              <TastimonialPhotoWidget photo={el} />
+            </div>
+          )
+        })}
+      </div>
     </>
   )
 }

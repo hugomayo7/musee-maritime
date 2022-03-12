@@ -13,7 +13,7 @@ export default function Tastimonials (props) {
     <div className={styles.container}>
       <TastimonialsTexts texts={props?.tastimonials?.texts}/>
       <TastimonialsAudios audios={props?.tastimonials?.audios}/>
-      <TastimonialsPhotos />
+      <TastimonialsPhotos photos ={props?.tastimonials?.photos}/>
     </div>
     </>
   )

@@ -27,19 +27,22 @@ let json = {
         audios: [
           {
             title: 'au son des vagues',
-            link:
-            audio
+            link: audio
           }
         ],
         texts: [
           "Pour l'avoir visité je confirme, ce bateau en vaut la peine !",
-          "Ce bateau est incroyable.."
+          'Ce bateau est incroyable..'
         ],
         photos: [
           {
             link:
               'https://cdn.discordapp.com/attachments/948214708006166568/948224426179199016/Cpt_de_frC3A9gate_Leverger.png',
             text: 'Cette image à été prise en plein océan'
+          },
+          {
+            link:
+              'https://cdn.discordapp.com/attachments/948214708006166568/948224426179199016/Cpt_de_frC3A9gate_Leverger.png'
           }
         ]
       },
@@ -93,8 +96,7 @@ let json = {
         historicMonumentRankDate: '12/03/1987',
         lastRestore: '2001 - 2008'
       },
-      tastimonials: {
-      },
+      tastimonials: {},
       position: {
         lat: 46.152209,
         lgn: -1.152368
