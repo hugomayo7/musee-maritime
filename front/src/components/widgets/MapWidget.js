@@ -7,7 +7,9 @@ function MapWidget (props) {
   const [map, setMap] = useState()
   const [boatsData, setBoatsData] = useState()
 
-  useEffect(() => {setBoatsData(props.boatsData)}, [props.boatsData])
+  useEffect(() => {
+    setBoatsData(props.boatsData)
+  }, [props.boatsData])
 
   useEffect(() => {
     const createMap = () => {
@@ -17,12 +19,15 @@ function MapWidget (props) {
           zoomControl: false,
           zoom: 16,
           layers: [
-            L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-              attribution:
-                '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-                id:"satellite-streets-v9",
-                accessToken:process.env.REACT_APP_MAPBOX_TOKEN
-            })
+            L.tileLayer(
+              'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+              {
+                attribution:
+                  '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                id: 'satellite-streets-v9',
+                accessToken: process.env.REACT_APP_MAPBOX_TOKEN
+              }
+            )
           ]
         })
 
@@ -39,9 +44,7 @@ function MapWidget (props) {
           let marker = boatsData[i]
           L.marker([marker.position.lat, marker.position.lgn], {
             icon: L.divIcon({
-              html: `<div id="iconMap${marker.id}"><div class=${
-                styles.marker
-              }><div/><span>${marker.id}</span></div>`,
+              html: `<div id="iconMap${marker.id}"><div class=${styles.marker}><div/><span>${marker.id}</span></div>`,
               className: `${styles.icon}`
             })
           }).addTo(map)
@@ -65,7 +68,12 @@ function MapWidget (props) {
               selected(i)
             })
         }
+
+        document.querySelector('#iconMap1 > div')?.classList.add(styles.selected)
+        let selected = props.setSelectedBoat
+        selected(0)
       }
+
     }
     createMap()
   }, [props.setSelectedBoat, boatsData, setMap, map])
