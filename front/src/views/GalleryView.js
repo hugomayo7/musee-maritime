@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import GalleryPhotos from '../components/GalleryPhotos'
 import Header from '../components/Header'
+import SpinnerDotWidget from '../components/widgets/SpinnerDotWidget'
+import styles from './GalleryView.module.css'
 
 export default function GalleryView (props) {
   const [images, setStateImages] = useState([])
@@ -19,7 +21,15 @@ export default function GalleryView (props) {
   return (
     <div>
       <Header title={'Galerie'} />
-      <GalleryPhotos images={images} />
+      {props?.boatsData ? (
+        <>
+          <GalleryPhotos images={images} />
+        </>
+      ) : (
+        <div className={styles.skel}>
+          <SpinnerDotWidget/>
+        </div>
+      )}
     </div>
   )
 }
