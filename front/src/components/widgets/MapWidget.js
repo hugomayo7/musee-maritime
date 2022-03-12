@@ -51,7 +51,6 @@ function MapWidget (props) {
           document
             .querySelector('#iconMap' + (i + 1).toString() + ' > div')
             .addEventListener('click', e => {
-              //document.getElementById("boatwidget").scrollIntoView(); 
               for (let y = 0; y < boatsData?.length; y++) {
                 document
                   .querySelector('#iconMap' + (y + 1).toString())
