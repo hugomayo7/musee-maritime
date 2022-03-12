@@ -1,5 +1,6 @@
 import image1 from '../../static/img/boat1.png'
 import image2 from '../../static/img/boat2.png'
+import audio from '../../static/audio/audio1.mp3'
 
 let json = {
   boatsList: [
@@ -27,11 +28,12 @@ let json = {
           {
             title: 'au son des vagues',
             link:
-              'https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/7e793d26c12d4915b0e62eb87327ea6a.mp3'
+            audio
           }
         ],
         texts: [
           "Pour l'avoir visité je confirme, ce bateau en vaut la peine !",
+          "Ce bateau est incroyable.."
         ],
         photos: [
           {
@@ -92,8 +94,6 @@ let json = {
         lastRestore: '2001 - 2008'
       },
       tastimonials: {
-        audio:
-          'https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/bba1bb3733664358bb09516d85b35914.mp3'
       },
       position: {
         lat: 46.152209,
