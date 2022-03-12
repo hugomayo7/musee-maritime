@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './TastimonialPhotoWidget.module.css'
 
 export default function TastimonialPhotoWidget (props) {
-  console.log("🚀 ~ file: TastimonialPhotoWidget.js ~ line 5 ~ TastimonialPhotoWidget ~ props", props)
   return (
     <div className={styles.disposition}>
       <div className={styles.divimg}>
