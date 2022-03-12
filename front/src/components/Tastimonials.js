@@ -8,11 +8,13 @@ import styles from "./Tastimonials.module.css"
 
 export default function Tastimonials (props) {
   return (
+    <>
+    <BasicTitleWidget text='Quelques témoignages...' />
     <div className={styles.container}>
-      <BasicTitleWidget text='Quelques témoignages...' />
       <TastimonialsTexts texts={props?.tastimonials?.texts}/>
       <TastimonialsAudios audios={props?.tastimonials?.audios}/>
       <TastimonialsPhotos />
     </div>
+    </>
   )
 }
