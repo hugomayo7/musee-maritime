@@ -51,6 +51,10 @@ function MapWidget (props) {
           document
             .querySelector('#iconMap' + (i + 1).toString() + ' > div')
             .addEventListener('click', e => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+              })
               for (let y = 0; y < boatsData?.length; y++) {
                 document
                   .querySelector('#iconMap' + (y + 1).toString())
