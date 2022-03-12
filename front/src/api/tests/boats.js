@@ -72,7 +72,10 @@ let json = {
         lat: 46.151209,
         lgn: -1.151758
       },
-      image: image1
+      image: image1,
+      images: [
+        image1, image2
+      ]
     },
     {
       id: 2,
@@ -99,7 +102,10 @@ let json = {
         lat: 46.152209,
         lgn: -1.152368
       },
-      image: image2
+      image: image2,
+      images: [
+        image1, image2
+      ]
     }
   ]
 }
