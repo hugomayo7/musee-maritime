@@ -37,7 +37,7 @@ function BoatWidget (props) {
 
   if (props.selectedBoat !== undefined)
     return (
-      <div className={`${styles.disposition}`}>
+      <div className={`${styles.disposition}`} id="boatwidget">
         <div className={`${styles.textcontent}`}>
           <div className={`${styles.dispositionleft}`}>
             <div className={`${styles.title}`}>
