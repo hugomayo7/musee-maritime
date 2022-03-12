@@ -17,9 +17,11 @@ function MapWidget (props) {
           zoomControl: false,
           zoom: 16,
           layers: [
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
               attribution:
-                '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                id:"satellite-streets-v9",
+                accessToken:"pk.eyJ1IjoibGh1b3J0IiwiYSI6ImNsMG80Y2drbjE2a3EzZHBlemw1MXhtZm8ifQ._4AlCgwcygEAwnzR1DQOzg"
             })
           ]
         })
