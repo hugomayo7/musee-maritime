@@ -5,7 +5,7 @@ import BoatDetailTableWidget from "./widgets/BoatDetailTablePlanningWidget"
 export default function Planning(props) {
   return (
     <div className={styles.disposition}>
-      <BoatDetailTableWidget timetables={props?.planning?.week}/>
+      <BoatDetailTableWidget timetables={props?.planning?.week} state={props?.state}/>
     </div>
   )
 }

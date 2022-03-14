@@ -39,7 +39,7 @@ export default function BoatDetailsView (props) {
         <HeaderWidget widgets={widgets} />
       </div>
       <BasicTitleWidget text={'Planning des visites'} widget={<ChronoWidget time={boat?.visits?.visitTime} />} />
-      <Planning planning={boat?.visits} />
+      <Planning planning={boat?.visits} state={boat} />
       <BasicTitleWidget text='Historique' />
       <div className={styles.basictext}>
         <Historic history={boat?.history} />
