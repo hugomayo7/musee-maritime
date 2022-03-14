@@ -50,12 +50,28 @@ function App() {
         setMeteo({
           state: 1,
           data: {
-            temp: e.temp,
-            conditions: e.currentConditions,
+            temp: e.current.temp,
+            conditions: e.current.currentConditions,
             icon:
               'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
-              e.icon +
-              '.svg'
+              e.current.icon +
+              '.svg',
+            daily: [
+              {
+                temp: e.daily[0].temp,
+                conditions: e.daily[0].currentConditions,
+                icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+                  e.daily[0].icon +
+                  '.svg',
+              },
+              {
+                temp: e.daily[1].temp,
+                conditions: e.daily[1].currentConditions,
+                icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+                  e.daily[1].icon +
+                  '.svg',
+              }
+            ]
           }
         })
       })
@@ -64,7 +80,7 @@ function App() {
 
     setInterval(() => {
       fetchData()
-    }, 10000)
+    }, 30000)
   }, [setMeteo])
 
   return (
