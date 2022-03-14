@@ -1,11 +1,10 @@
-.disposition{
+.disposition {
     overflow: hidden;
 }
 
-.map{
+.map {
     height: 300px;
 }
-
 
 .icon {
     display: flex;
@@ -17,25 +16,19 @@
 
 .icon span {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 25px;
     height: 25px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
 }
 
-.marker{
-    width: 25px;
-    height: 25px;
-    border: solid black 2px;
-    border-radius: 50%;
-    background-color: white;
+.marker {
+    width: 70px;
+    height: auto;
     transition: all 0.3s ease-in-out;
-}
-
-.selected {
-background-color: yellow;
 }

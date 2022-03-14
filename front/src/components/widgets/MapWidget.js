@@ -1,5 +1,8 @@
 import styles from './MapWidget.module.css'
 import React, { useEffect, useState } from 'react'
+import boatMap from '../../static/img/boatMap.svg'
+import boatMapSelected from '../../static/img/boatMapSelected.svg'
+
 
 import L from 'leaflet'
 
@@ -44,7 +47,7 @@ function MapWidget (props) {
           let marker = boatsData[i]
           L.marker([marker.position.lat, marker.position.lgn], {
             icon: L.divIcon({
-              html: `<div id="iconMap${marker.id}"><div class=${styles.marker}><div/><span>${marker.id}</span></div>`,
+              html: `<div id="iconMap${marker.id}"><img class=${styles.marker} src=${boatMap}><div/><span>${marker.id}</span></div>`,
               className: `${styles.icon}`
             })
           }).addTo(map)
@@ -58,14 +61,14 @@ function MapWidget (props) {
               for (let y = 0; y < boatsData?.length; y++) {
                 document
                   .querySelector('#iconMap' + (y + 1).toString())
-                  .querySelector('div')
-                  .classList.remove(styles.selected)
+                  .querySelector('img')
+                  .src = boatMap
 
                 if (i === y) {
                   document
                     .querySelector('#iconMap' + (y + 1).toString())
-                    .querySelector('div')
-                    .classList.add(styles.selected)
+                    .querySelector('img')
+                    .src = boatMapSelected
                 }
               }
               let selected = props.setSelectedBoat
