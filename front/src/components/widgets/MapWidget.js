@@ -52,7 +52,7 @@ function MapWidget (props) {
             })
           }).addTo(map)
           document
-            .querySelector('#iconMap' + (i + 1).toString() + ' > div')
+            .querySelector('#iconMap' + (i + 1).toString())
             .addEventListener('click', e => {
               window.scrollTo({
                 top: window.innerHeight,
