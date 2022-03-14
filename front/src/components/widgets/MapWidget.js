@@ -64,11 +64,21 @@ function MapWidget (props) {
                   .querySelector('img')
                   .src = boatMap
 
+                  document
+                  .querySelector('#iconMap' + (y + 1).toString())
+                  .querySelector('img')
+                  .classList.remove(styles.bounce);
+
                 if (i === y) {
                   document
                     .querySelector('#iconMap' + (y + 1).toString())
                     .querySelector('img')
                     .src = boatMapSelected
+
+                    document
+                    .querySelector('#iconMap' + (y + 1).toString())
+                  .querySelector('img')
+                    .classList.add(styles.bounce);
                 }
               }
               let selected = props.setSelectedBoat
