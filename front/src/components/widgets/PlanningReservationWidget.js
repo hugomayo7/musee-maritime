@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal'
 import Fade from '@mui/material/Fade'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import Stack from '@mui/material/Stack'
 
 const style = {
   position: 'absolute',
@@ -14,14 +15,17 @@ const style = {
   width: '80%',
   maxWidth: '400px',
   bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
+  border: '1px solid #38679D',
+  borderRadius: '5px',
   p: 4
 }
 
+const styleTitle = {
+  fontSize: '16px',
+  mb: 2
+}
+
 export default function PlanningReservationWidget (props) {
-
-
   return (
     <div>
       <Modal
@@ -37,12 +41,27 @@ export default function PlanningReservationWidget (props) {
       >
         <Fade in={props.openModal}>
           <Box sx={style}>
-            <Typography id='transition-modal-title' variant='h6' component='h2'>
-              Text in a modal
+            <Typography
+              id='transition-modal-title'
+              sx={styleTitle}
+              variant='h6'
+              component='h2'
+            >
+              Confirmez vous votre réservation ?
             </Typography>
-            <Typography id='transition-modal-description' sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            <hr />
+            <Stack
+              direction='row'
+              spacing={2}
+              sx={{ mt: 2, justifyContent: 'flex-end' }}
+            >
+              <Button variant='outlined' color='error'>
+                Annuler
+              </Button>
+              <Button variant='contained' color='success'>
+                Confirmer
+              </Button>
+            </Stack>
           </Box>
         </Fade>
       </Modal>

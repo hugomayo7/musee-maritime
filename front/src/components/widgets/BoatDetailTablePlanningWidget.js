@@ -153,10 +153,11 @@ export default function BoatDetailTablePlanningWidget (props) {
 
       {boatReservation ? (
         <PlanningReservationWidget
-          boat={boatReservation}
+          id={boatReservation}
           state={openModal}
           handleClose={handleClose}
           openModal={openModal}
+          boats={props?.boatsData}
         />
       ) : (
         <></>
