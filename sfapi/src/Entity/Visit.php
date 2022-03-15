@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\VisitRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @apiResource()
  * @ORM\Entity(repositoryClass=VisitRepository::class)
  */
 class Visit

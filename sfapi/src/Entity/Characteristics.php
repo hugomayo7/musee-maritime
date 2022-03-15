@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\CharacteristicsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @apiResource()
+ *
  * @ORM\Entity(repositoryClass=CharacteristicsRepository::class)
  */
 class Characteristics

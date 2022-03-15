@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ScheduleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @apiResource()
+ *
  * @ORM\Entity(repositoryClass=ScheduleRepository::class)
  */
 class Schedule
