@@ -55,10 +55,10 @@ export default function PlanningReservationWidget (props) {
               spacing={2}
               sx={{ mt: 2, justifyContent: 'flex-end' }}
             >
-              <Button variant='outlined' color='error'>
+              <Button variant='outlined' color='error' onClick={props.handleClose}>
                 Annuler
               </Button>
-              <Button variant='contained' color='success'>
+              <Button variant='contained' color='success' >
                 Confirmer
               </Button>
             </Stack>
