@@ -2,6 +2,7 @@ import React from 'react'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
+import { useParams } from 'react-router-dom'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
@@ -11,9 +12,19 @@ import IconButton from '@mui/material/IconButton'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import styles from './BoatDetailTablePlanningWidget.module.css'
+import { Button } from '@mui/material'
+import PlanningReservationWidget from './PlanningReservationWidget'
 
 export default function BoatDetailTablePlanningWidget (props) {
+  const { id } = useParams()
   const [open, setOpen] = React.useState(false)
+  const [boatReservation, setBoatReservation] = React.useState()
+  const [openModal, setOpenModal] = React.useState(false)
+  const handleOpen = e => {
+    setOpenModal(true)
+    setBoatReservation(id)
+  }
+  const handleClose = () => setOpenModal(false)
 
   return (
     <>
@@ -23,6 +34,7 @@ export default function BoatDetailTablePlanningWidget (props) {
             <TableRow>
               <TableCell>Jour</TableCell>
               <TableCell align='right'>Places restantes</TableCell>
+              <TableCell align='right'>Réserver</TableCell>
             </TableRow>
           </TableHead>
         </Table>
@@ -42,6 +54,10 @@ export default function BoatDetailTablePlanningWidget (props) {
                   >
                     Chargement...
                   </TableCell>
+                  <TableCell
+                    align='right'
+                    className={styles.loadingrow}
+                  ></TableCell>
                   <TableCell
                     align='right'
                     className={styles.loadingrow}
@@ -77,6 +93,23 @@ export default function BoatDetailTablePlanningWidget (props) {
                       {props?.timetables[row]?.actu}/
                       {props?.timetables[row]?.max}
                     </TableCell>
+                    <TableCell
+                      align='right'
+                      className={
+                        props?.timetables[row]?.actu ===
+                        props?.timetables[row]?.max
+                          ? styles.fullrow
+                          : ''
+                      }
+                    >
+                      <Button
+                        onClick={e => {
+                          handleOpen(e)
+                        }}
+                      >
+                        Réserver
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))
               ) : (
@@ -86,6 +119,7 @@ export default function BoatDetailTablePlanningWidget (props) {
                   <TableCell component='th' scope='row'>
                     Aucune visite
                   </TableCell>
+                  <TableCell align='right'></TableCell>
                   <TableCell align='right'></TableCell>
                 </TableRow>
               )}
@@ -101,6 +135,17 @@ export default function BoatDetailTablePlanningWidget (props) {
       >
         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
       </IconButton>
+
+      {boatReservation ? (
+        <PlanningReservationWidget
+          boat={boatReservation}
+          state={openModal}
+          handleClose={handleClose}
+          openModal={openModal}
+        />
+      ) : (
+        <></>
+      )}
     </>
   )
 }

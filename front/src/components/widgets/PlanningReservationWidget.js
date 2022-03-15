@@ -11,33 +11,31 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: '80%',
+  maxWidth: '400px',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4
 }
 
-export default function PlanningReservationWidget () {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+export default function PlanningReservationWidget (props) {
+
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         aria-labelledby='transition-modal-title'
         aria-describedby='transition-modal-description'
-        open={open}
-        onClose={handleClose}
+        open={props.openModal}
+        onClose={props.handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500
         }}
       >
-        <Fade in={open}>
+        <Fade in={props.openModal}>
           <Box sx={style}>
             <Typography id='transition-modal-title' variant='h6' component='h2'>
               Text in a modal
