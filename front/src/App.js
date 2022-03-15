@@ -52,6 +52,8 @@ function App() {
           data: {
             temp: e.current.temp,
             conditions: e.current.currentConditions,
+            humidity: e.current.humidity,
+            wind: e.current.wind,
             icon:
               'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
               e.current.icon +
@@ -59,6 +61,9 @@ function App() {
             daily: [
               {
                 temp: e.daily[0].temp,
+                precip: e.daily[0].precip,
+                humidity: e.daily[0].humidity,
+                wind: e.daily[0].wind,
                 conditions: e.daily[0].currentConditions,
                 icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[0].icon +
@@ -66,6 +71,9 @@ function App() {
               },
               {
                 temp: e.daily[1].temp,
+                precip: e.daily[1].precip,
+                humidity: e.daily[1].humidity,
+                wind: e.daily[1].wind,
                 conditions: e.daily[1].currentConditions,
                 icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[1].icon +

@@ -1,0 +1,67 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 33%;
+    width: 100%;
+    border: solid 3px #38679D;
+    border-radius: 10px;
+    margin: 2%;
+    padding: 3%;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.conditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.conditions p {
+    font-size: 15px;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.conditions img {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}
+
+.temperature {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+.temperature p {
+    font-size: 22px;
+}
+
+strong {
+    color : #38679D;
+    font-size: 14px;
+}
+
+.bottom {
+    padding-top: 5%;
+}
+
+.bottom p {
+    margin: 0;
+    padding: 1%;
+    width: 100%;
+}

@@ -76,9 +76,8 @@ export default async function promise() {
           temp: Math.round(response.current.temp),
           currentConditions: (response.current.weather[0].description).charAt(0).toUpperCase() + (response.current.weather[0].description).slice(1),
           icon: setIcon,
-          precip: response.current.pop,
           humidity: response.current.humidity,
-          wind: response.current.wind_speed,
+          wind: Math.round(response.current.wind_speed*3.6),
         },
         daily: [
           {
@@ -87,7 +86,7 @@ export default async function promise() {
             icon: setIcon1,
             precip: response.daily[0].pop,
             humidity: response.daily[0].humidity,
-            wind: response.daily[0].wind_speed,
+            wind: Math.round(response.daily[0].wind_speed*3.6),
           },
           {
             temp: Math.round(response.daily[1].temp.day),
@@ -95,7 +94,7 @@ export default async function promise() {
             icon: setIcon2,
             precip: response.daily[1].pop,
             humidity: response.daily[1].humidity,
-            wind: response.daily[1].wind_speed,
+            wind: Math.round(response.daily[1].wind_speed*3.6),
           }
         ]
       }
