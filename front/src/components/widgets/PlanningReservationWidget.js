@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
+import styles from './PlanningReservationWidget.module.css'
 
 const style = {
   position: 'absolute',
@@ -21,7 +22,7 @@ const style = {
 }
 
 const styleTitle = {
-  fontSize: '16px',
+  fontSize: '18px',
   mb: 2
 }
 
@@ -47,7 +48,7 @@ export default function PlanningReservationWidget (props) {
               variant='h6'
               component='h2'
             >
-              Confirmez vous votre réservation ?
+              Confirmez vous votre réservation pour <span className={styles.bolder}>{props?.id}</span> ?
             </Typography>
             <hr />
             <Stack

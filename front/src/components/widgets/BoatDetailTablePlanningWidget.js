@@ -20,9 +20,9 @@ export default function BoatDetailTablePlanningWidget (props) {
   const [open, setOpen] = React.useState(false)
   const [boatReservation, setBoatReservation] = React.useState()
   const [openModal, setOpenModal] = React.useState(false)
-  const handleOpen = e => {
+  const handleOpen = (e, row) => {
     setOpenModal(true)
-    setBoatReservation(id)
+    setBoatReservation(row)
   }
   const handleClose = () => setOpenModal(false)
 
@@ -107,7 +107,7 @@ export default function BoatDetailTablePlanningWidget (props) {
                           props?.timetables[row]?.max
                             ? ( <Button
                               onClick={e => {
-                                handleOpen(e)
+                                handleOpen(e, row)
                               }}
                               disabled
                             >
@@ -116,7 +116,7 @@ export default function BoatDetailTablePlanningWidget (props) {
                             : (
                               <Button
                               onClick={e => {
-                                handleOpen(e)
+                                handleOpen(e, row)
                               }}
                               
                             >
