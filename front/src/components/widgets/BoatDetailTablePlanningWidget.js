@@ -102,13 +102,28 @@ export default function BoatDetailTablePlanningWidget (props) {
                           : ''
                       }
                     >
-                      <Button
-                        onClick={e => {
-                          handleOpen(e)
-                        }}
-                      >
-                        Réserver
-                      </Button>
+                      {
+                          props?.timetables[row]?.actu >=
+                          props?.timetables[row]?.max
+                            ? ( <Button
+                              onClick={e => {
+                                handleOpen(e)
+                              }}
+                              disabled
+                            >
+                              Complet
+                            </Button>)
+                            : (
+                              <Button
+                              onClick={e => {
+                                handleOpen(e)
+                              }}
+                              
+                            >
+                              Réserver
+                            </Button>
+                            )
+                        }
                     </TableCell>
                   </TableRow>
                 ))
