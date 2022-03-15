@@ -3,3 +3,5 @@
 **/.Ds_Store
 /mysql/
 
+*.lock
+package-lock.json
