@@ -32,55 +32,53 @@ export default function BoatDetailTablePlanningWidget (props) {
           <Table aria-label='simple table'>
             <TableBody>
               {props?.state?.id === -1 ? (
-                props?.timetables ? (
-                  Object.keys(props?.timetables).map(row => (
-                    <TableRow
-                      key={row}
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                      <TableCell
-                        component='th'
-                        scope='row'
-                        className={
-                          props?.timetables[row]?.actu ===
-                          props?.timetables[row]?.max
-                            ? styles.fullrow
-                            : ''
-                        }
-                      >
-                        {row}
-                      </TableCell>
-                      <TableCell
-                        align='right'
-                        className={
-                          props?.timetables[row]?.actu ===
-                          props?.timetables[row]?.max
-                            ? styles.fullrow
-                            : ''
-                        }
-                      >
-                        {props?.timetables[row]?.actu}/
-                        {props?.timetables[row]?.max}
-                      </TableCell>
-                    </TableRow>
-                  ))
-                ) : (
+                <TableRow
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell
+                    component='th'
+                    scope='row'
+                    className={styles.loadingrow}
+                  >
+                    Chargement...
+                  </TableCell>
+                  <TableCell
+                    align='right'
+                    className={styles.loadingrow}
+                  ></TableCell>
+                </TableRow>
+              ) : props?.timetables ? (
+                Object.keys(props?.timetables).map(row => (
                   <TableRow
+                    key={row}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell
                       component='th'
                       scope='row'
-                      className={styles.loadingrow}
+                      className={
+                        props?.timetables[row]?.actu ===
+                        props?.timetables[row]?.max
+                          ? styles.fullrow
+                          : ''
+                      }
                     >
-                      Chargement...
+                      {row}
                     </TableCell>
                     <TableCell
                       align='right'
-                      className={styles.loadingrow}
-                    ></TableCell>
+                      className={
+                        props?.timetables[row]?.actu ===
+                        props?.timetables[row]?.max
+                          ? styles.fullrow
+                          : ''
+                      }
+                    >
+                      {props?.timetables[row]?.actu}/
+                      {props?.timetables[row]?.max}
+                    </TableCell>
                   </TableRow>
-                )
+                ))
               ) : (
                 <TableRow
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
