@@ -31,33 +31,64 @@ export default function BoatDetailTablePlanningWidget (props) {
         <TableContainer component={Paper}>
           <Table aria-label='simple table'>
             <TableBody>
-              {props?.timetables?
-              Object.keys(props?.timetables).map(row => (
-                <TableRow
-                  key={row}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component='th' scope='row' className={props?.timetables[row]?.actu === props?.timetables[row]?.max ? styles.fullrow : ""}>
-                    {row}
-                  </TableCell>
-                  <TableCell align='right' className={props?.timetables[row]?.actu === props?.timetables[row]?.max ? styles.fullrow : ""}>
-                    {props?.timetables[row]?.actu}/{props?.timetables[row]?.max}
-                  </TableCell>
-                </TableRow>
-              ))
-            : (
-             
+              {props?.state?.id === -1 ? (
                 <TableRow
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component='th' scope='row' className={styles.loadingrow}>
-                      Chargement...
+                  <TableCell
+                    component='th'
+                    scope='row'
+                    className={styles.loadingrow}
+                  >
+                    Chargement...
                   </TableCell>
-                  <TableCell align='right' className={styles.loadingrow}>
-                  </TableCell>
+                  <TableCell
+                    align='right'
+                    className={styles.loadingrow}
+                  ></TableCell>
                 </TableRow>
-            
-            )}
+              ) : props?.timetables ? (
+                Object.keys(props?.timetables).map(row => (
+                  <TableRow
+                    key={row}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell
+                      component='th'
+                      scope='row'
+                      className={
+                        props?.timetables[row]?.actu ===
+                        props?.timetables[row]?.max
+                          ? styles.fullrow
+                          : ''
+                      }
+                    >
+                      {row}
+                    </TableCell>
+                    <TableCell
+                      align='right'
+                      className={
+                        props?.timetables[row]?.actu ===
+                        props?.timetables[row]?.max
+                          ? styles.fullrow
+                          : ''
+                      }
+                    >
+                      {props?.timetables[row]?.actu}/
+                      {props?.timetables[row]?.max}
+                    </TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component='th' scope='row'>
+                    Aucune visite
+                  </TableCell>
+                  <TableCell align='right'></TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </TableContainer>
