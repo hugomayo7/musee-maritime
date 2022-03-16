@@ -5,9 +5,14 @@ namespace App\Entity;
 use App\Repository\ScheduleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
- * @apiResource()
+ * @apiResource(
+ *      normalizationContext={"groups"={"schedule:read"}},
+ *      denormalizationContext={"groups"={"schedule:write"}}
+ * )
  *
  * @ORM\Entity(repositoryClass=ScheduleRepository::class)
  */
@@ -21,16 +26,19 @@ class Schedule
     private $id;
 
     /**
+     * @Groups({"schedule:read", "schedule:write"})
      * @ORM\Column(type="date")
      */
     private $day;
 
     /**
+     * @Groups({"schedule:read", "schedule:write"})
      * @ORM\Column(type="string", length=255)
      */
     private $opening;
 
     /**
+     * @Groups({"schedule:read", "schedule:write"})
      * @ORM\Column(type="string", length=255)
      */
     private $closing;

@@ -5,9 +5,14 @@ namespace App\Entity;
 use App\Repository\CharacteristicsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
- * @apiResource()
+ * @apiResource(
+ *      normalizationContext={"groups"={"characteristics:read"}},
+ *      denormalizationContext={"groups"={"characteristics:write"}}
+ * )
  *
  * @ORM\Entity(repositoryClass=CharacteristicsRepository::class)
  */
@@ -21,47 +26,56 @@ class Characteristics
     private $id;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\OneToOne(targetEntity=Boat::class, inversedBy="characteristics", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_boat;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="integer")
      */
     private $start_year;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $material;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $initial_owner;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $initial_harbor;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $collection_entry;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $buy_price;
 
     /**
+     * @Groups({"characteristics:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $historic_monument_rank_date;
 
     /**
+     * @Groups({"characteristics:read","characteristics:write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $restore;

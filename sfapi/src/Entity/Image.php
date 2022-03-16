@@ -5,9 +5,14 @@ namespace App\Entity;
 use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
- * @apiResource()
+ * @apiResource(
+ *      normalizationContext={"groups"={"image:read"}},
+ *      denormalizationContext={"groups"={"image:write"}}
+ * )
  *
  * @ORM\Entity(repositoryClass=ImageRepository::class)
  */
@@ -21,16 +26,19 @@ class Image
     private $id;
 
     /**
+     * @Groups({"image:read"})
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="images")
      */
     private $id_boat;
 
     /**
+     * @Groups({"image:read", "image:write"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
+     * @Groups({"image:read", "image:write"})
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $image;
@@ -54,12 +62,12 @@ class Image
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(?string $Description): self
+    public function setDescription(?string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }

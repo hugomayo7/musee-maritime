@@ -5,9 +5,14 @@ namespace App\Entity;
 use App\Repository\VisitRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
- * @apiResource()
+ * @apiResource(
+ *      normalizationContext={"groups"={"visit:read"}},
+ *      denormalizationContext={"groups"={"visit:write"}}
+ * )
  * @ORM\Entity(repositoryClass=VisitRepository::class)
  */
 class Visit
@@ -20,22 +25,26 @@ class Visit
     private $id;
 
     /**
+     * @Groups({"visit:read"})
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="visits")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_boat;
 
     /**
+     * @Groups({"visit:read", "visit:write"})
      * @ORM\Column(type="date")
      */
     private $day;
 
     /**
+     * @Groups({"visit:read", "visit:write"})
      * @ORM\Column(type="integer")
      */
     private $maximum_places;
 
     /**
+     * @Groups({"visit:read", "visit:write"})
      * @ORM\Column(type="integer")
      */
     private $actual;

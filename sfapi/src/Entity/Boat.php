@@ -133,12 +133,12 @@ class Boat
         return $this;
     }
 
-    public function getStateText(): ?string
+    public function getState_Text(): ?string
     {
         return $this->state_text;
     }
 
-    public function setStateText(string $state_text): self
+    public function setState_Text(string $state_text): self
     {
         $this->state_text = $state_text;
 
