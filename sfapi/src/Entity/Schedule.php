@@ -26,12 +26,8 @@ class Schedule
     private $id;
 
     /**
-<<<<<<< HEAD
-     * @Groups({"schedule:read", "schedule:write"})
-     * @ORM\Column(type="date")
-=======
+     * @Groups({"schedule:read", "schedule:write"})*
      * @ORM\Column(type="string", length=255, nullable=false)
->>>>>>> dc008f7cc7fcfa88347939d386761e752b8d4381
      */
     private $day;
 

@@ -25,19 +25,15 @@ class Visit
     private $id;
 
     /**
-     * @Groups({"visit:read"})
+     * @Groups({"visit:read","visit:write"})
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="visits")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_boat;
 
     /**
-<<<<<<< HEAD
      * @Groups({"visit:read", "visit:write"})
-     * @ORM\Column(type="date")
-=======
-     * @ORM\Column(type="string")
->>>>>>> dc008f7cc7fcfa88347939d386761e752b8d4381
+     * @ORM\Column(type="string", length=255)
      */
     private $day;
 
@@ -54,6 +50,7 @@ class Visit
     private $actual;
 
     /**
+     * @Groups({"visit:read", "visit:write"})
      * @ORM\Column(type="integer", nullable=true)
      */
     private $visitTime;
@@ -68,7 +65,7 @@ class Visit
         return $this->id_boat;
     }
 
-    public function setIdBoat(?Boat $id_boat): self
+    public function setId_Boat(?Boat $id_boat): self
     {
         $this->id_boat = $id_boat;
 
@@ -92,7 +89,7 @@ class Visit
         return $this->maximum_places;
     }
 
-    public function setMaximumPlaces(int $maximum_places): self
+    public function setMaximum_Places(int $maximum_places): self
     {
         $this->maximum_places = $maximum_places;
 

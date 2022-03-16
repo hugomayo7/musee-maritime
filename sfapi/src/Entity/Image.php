@@ -26,7 +26,7 @@ class Image
     private $id;
 
     /**
-     * @Groups({"image:read"})
+     * @Groups({"image:read","image:write"})
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="images")
      */
     private $id_boat;
@@ -53,7 +53,7 @@ class Image
         return $this->id_boat;
     }
 
-    public function setIdBoat(?Boat $id_boat): self
+    public function setId_Boat(?Boat $id_boat): self
     {
         $this->id_boat = $id_boat;
 

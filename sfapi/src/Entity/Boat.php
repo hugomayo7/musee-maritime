@@ -46,7 +46,7 @@ class Boat
 
     /**
      * @Groups({"boat:read", "boat:write"})
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $state_text;
 
@@ -133,7 +133,7 @@ class Boat
         return $this;
     }
 
-    public function getState_Text(): ?string
+    public function getStateText(): ?string
     {
         return $this->state_text;
     }
