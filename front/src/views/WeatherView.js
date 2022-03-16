@@ -11,13 +11,17 @@ export default function WeatherView(props) {
       <div className={styles.weatherCards}>
         <div className={styles.titleBox}><p className={styles.title}>Aujourd'hui</p></div>
         <div className={styles.today}>
-          <WeatherCard weatherData={props?.meteo} />
+          <WeatherCard weatherData={props?.meteo} id='0' />
         </div>
         <div className={styles.forecast}>
-          <WeatherCard weatherData={props?.meteo} />
-          <WeatherCard weatherData={props?.meteo} />
+          <div className={styles.fore}>
+            <WeatherCard weatherData={props?.meteo} id='1' />
+          </div>
+          <div className={styles.fore}>
+            <WeatherCard weatherData={props?.meteo} id='2' />
+          </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }

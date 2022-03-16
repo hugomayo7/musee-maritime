@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 33%;
-    width: 100%;
+    width: 80%;
     border: solid 3px #38679D;
     border-radius: 10px;
     margin: 2%;
@@ -30,7 +29,6 @@
 .conditions p {
     font-size: 15px;
     margin: 0;
-    width: 100%;
     position: absolute;
 }
 
@@ -51,9 +49,10 @@
     font-size: 22px;
 }
 
-strong {
+span {
     color : #38679D;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .bottom {

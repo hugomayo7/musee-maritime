@@ -11,11 +11,13 @@ function MeteoWidget(props) {
     return () => (mounted.current = false)
   })
 
+  
+
   return (
     <Link to={'meteo'}>
       <div className={`${styles.disposition}`}>
         <div className={`${styles.texts}`}>
-          <span>{props.meteo.state ? props.meteo.data.conditions : ''}</span>
+          <span>{props.meteo.state !==-1 ? props.meteo.data.daily[0].conditions : ''}</span>
           {props.meteo.state === -1 ? (
             <span className={`${styles.separation}`} />
           ) : (
@@ -23,11 +25,11 @@ function MeteoWidget(props) {
           )}
           <span>
             {' '}
-            {props.meteo.state === -1 ? '--' : props.meteo.data.temp}°C
+            {props.meteo.state === -1 ? '--' : props.meteo.data.daily[0].temp}°C
           </span>
         </div>
         <img
-          src={props.meteo.state === -1 ? loadingIcon : props.meteo.data.icon}
+          src={props.meteo.state === -1 ? loadingIcon : props.meteo.data.daily[0].icon}
           alt='Affichage de la météo'
           className={`${styles.img}`}
         />
