@@ -21,7 +21,7 @@ class Schedule
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $day;
 
@@ -40,12 +40,12 @@ class Schedule
         return $this->id;
     }
 
-    public function getDay(): ?\DateTimeInterface
+    public function getDay(): ?string
     {
         return $this->day;
     }
 
-    public function setDay(\DateTimeInterface $day): self
+    public function setDay(string $day): self
     {
         $this->day = $day;
 

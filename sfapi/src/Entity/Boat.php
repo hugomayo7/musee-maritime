@@ -46,7 +46,7 @@ class Boat
 
     /**
      * @Groups({"boat:read", "boat:write"})
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $state_text;
 
@@ -138,7 +138,7 @@ class Boat
         return $this->state_text;
     }
 
-    public function setStateText(string $state_text): self
+    public function setState_Text(string $state_text): self
     {
         $this->state_text = $state_text;
 

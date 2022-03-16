@@ -26,7 +26,7 @@ class Visit
     private $id_boat;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     private $day;
 
@@ -39,6 +39,11 @@ class Visit
      * @ORM\Column(type="integer")
      */
     private $actual;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $visitTime;
 
     public function getId(): ?int
     {
@@ -57,12 +62,12 @@ class Visit
         return $this;
     }
 
-    public function getDay(): ?\DateTimeInterface
+    public function getDay(): ?string
     {
         return $this->day;
     }
 
-    public function setDay(\DateTimeInterface $day): self
+    public function setDay(string $day): self
     {
         $this->day = $day;
 
@@ -89,6 +94,18 @@ class Visit
     public function setActual(int $actual): self
     {
         $this->actual = $actual;
+
+        return $this;
+    }
+
+    public function getVisitTime(): ?int
+    {
+        return $this->visitTime;
+    }
+
+    public function setVisitTime(?int $visitTime): self
+    {
+        $this->visitTime = $visitTime;
 
         return $this;
     }
