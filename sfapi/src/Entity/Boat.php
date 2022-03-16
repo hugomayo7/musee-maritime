@@ -7,9 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @apiResource()
+ * @apiResource(
+ *     normalizationContext={"groups"={"boat:read"}},
+ *     denormalizationContext={"groups"={"boat:write"}}
+ * )
  *
  * @ORM\Entity(repositoryClass=BoatRepository::class)
  */
@@ -23,51 +27,61 @@ class Boat
     private $id;
 
     /**
+     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="text")
      */
     private $historic;
 
     /**
+     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="integer")
      */
     private $state;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Groups({"boat:read", "boat:write"})
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $state_text;
 
     /**
+     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $audio;
 
     /**
+     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="float")
      */
     private $lat;
 
     /**
+     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="float")
      */
     private $lng;
 
     /**
+     * @Groups({"boat:read"})
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="id_boat")
      */
     private $images;
 
     /**
+     * @Groups({"boat:read"})
      * @ORM\OneToOne(targetEntity=Characteristics::class, mappedBy="id_boat", cascade={"persist", "remove"})
      */
     private $characteristics;
 
     /**
+     * @Groups({"boat:read"})
      * @ORM\OneToMany(targetEntity=Visit::class, mappedBy="id_boat")
      */
     private $visits;
@@ -175,15 +189,6 @@ class Boat
         return $this->images;
     }
 
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setIdBoat($this);
-        }
-
-        return $this;
-    }
 
     public function removeImage(Image $image): self
     {
@@ -201,35 +206,12 @@ class Boat
     {
         return $this->characteristics;
     }
-
-    public function setCharacteristics(Characteristics $characteristics): self
-    {
-        // set the owning side of the relation if necessary
-        if ($characteristics->getIdBoat() !== $this) {
-            $characteristics->setIdBoat($this);
-        }
-
-        $this->characteristics = $characteristics;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Visit>
      */
     public function getVisits(): Collection
     {
         return $this->visits;
-    }
-
-    public function addVisit(Visit $visit): self
-    {
-        if (!$this->visits->contains($visit)) {
-            $this->visits[] = $visit;
-            $visit->setIdBoat($this);
-        }
-
-        return $this;
     }
 
     public function removeVisit(Visit $visit): self

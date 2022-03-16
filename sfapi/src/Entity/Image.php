@@ -28,10 +28,10 @@ class Image
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Description;
+    private $description;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $image;
 
