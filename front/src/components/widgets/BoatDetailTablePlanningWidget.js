@@ -11,9 +11,18 @@ import IconButton from '@mui/material/IconButton'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import styles from './BoatDetailTablePlanningWidget.module.css'
+import { Button } from '@mui/material'
+import PlanningReservationWidget from './PlanningReservationWidget'
 
 export default function BoatDetailTablePlanningWidget (props) {
   const [open, setOpen] = React.useState(false)
+  const [boatReservation, setBoatReservation] = React.useState()
+  const [openModal, setOpenModal] = React.useState(false)
+  const handleOpen = (e, row) => {
+    setOpenModal(true)
+    setBoatReservation(row)
+  }
+  const handleClose = () => setOpenModal(false)
 
   return (
     <>
@@ -23,6 +32,7 @@ export default function BoatDetailTablePlanningWidget (props) {
             <TableRow>
               <TableCell>Jour</TableCell>
               <TableCell align='right'>Places restantes</TableCell>
+              <TableCell align='right'>Réserver</TableCell>
             </TableRow>
           </TableHead>
         </Table>
@@ -42,6 +52,10 @@ export default function BoatDetailTablePlanningWidget (props) {
                   >
                     Chargement...
                   </TableCell>
+                  <TableCell
+                    align='right'
+                    className={styles.loadingrow}
+                  ></TableCell>
                   <TableCell
                     align='right'
                     className={styles.loadingrow}
@@ -77,6 +91,38 @@ export default function BoatDetailTablePlanningWidget (props) {
                       {props?.timetables[row]?.actu}/
                       {props?.timetables[row]?.max}
                     </TableCell>
+                    <TableCell
+                      align='right'
+                      className={
+                        props?.timetables[row]?.actu ===
+                        props?.timetables[row]?.max
+                          ? styles.fullrow
+                          : ''
+                      }
+                    >
+                      {
+                          props?.timetables[row]?.actu >=
+                          props?.timetables[row]?.max
+                            ? ( <Button
+                              onClick={e => {
+                                handleOpen(e, row)
+                              }}
+                              disabled
+                            >
+                              Complet
+                            </Button>)
+                            : (
+                              <Button
+                              onClick={e => {
+                                handleOpen(e, row)
+                              }}
+                              
+                            >
+                              Réserver
+                            </Button>
+                            )
+                        }
+                    </TableCell>
                   </TableRow>
                 ))
               ) : (
@@ -86,6 +132,7 @@ export default function BoatDetailTablePlanningWidget (props) {
                   <TableCell component='th' scope='row'>
                     Aucune visite
                   </TableCell>
+                  <TableCell align='right'></TableCell>
                   <TableCell align='right'></TableCell>
                 </TableRow>
               )}
@@ -101,6 +148,18 @@ export default function BoatDetailTablePlanningWidget (props) {
       >
         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
       </IconButton>
+
+      {boatReservation ? (
+        <PlanningReservationWidget
+          id={boatReservation}
+          state={openModal}
+          handleClose={handleClose}
+          openModal={openModal}
+          boats={props?.boatsData}
+        />
+      ) : (
+        <></>
+      )}
     </>
   )
 }
