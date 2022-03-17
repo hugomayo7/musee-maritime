@@ -34,7 +34,7 @@ class Characteristics
 
     /**
      * @Groups({"characteristics:read", "characteristics:write"})
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $start_year;
 
