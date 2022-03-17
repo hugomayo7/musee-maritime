@@ -37,8 +37,15 @@
 }
 
 .fore {
-    width: 46.5%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.forecast .content_card {
+    display: flex;
+    flex-direction: column;
+    width: 46.5%;
+    align-items: center;
 }
