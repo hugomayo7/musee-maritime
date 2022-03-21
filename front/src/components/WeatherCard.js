@@ -28,7 +28,7 @@ export default function WeatherCard (props) {
         setPrecipValue('')
       }
     }
-  }, [props.weatherData])
+  }, [props.weatherData, id])
 
   return (
     <div className={id !== 0 ? styles.bottomCards : styles.topCard}>
@@ -36,7 +36,7 @@ export default function WeatherCard (props) {
         <div className={styles.conditions}>
           <img
             src={
-              props.weatherData.state === -1
+              props?.weatherData?.state === -1
                 ? loadingIcon
                 : props.weatherData.data.daily[id].icon
             }

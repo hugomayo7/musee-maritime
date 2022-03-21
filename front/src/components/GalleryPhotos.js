@@ -1,5 +1,4 @@
 import React from 'react'
-import GalleryPhotoWidget from './widgets/GalleryPhotoWidget'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
