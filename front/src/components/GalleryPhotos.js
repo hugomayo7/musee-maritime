@@ -4,8 +4,8 @@ import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 
 const imgStyle = {
-  width: "100%",
-  height: "100%"
+  width: "250%",
+  height: "100%",
 };
 
 function srcset (image, size, rows = 1, cols = 1) {
@@ -44,15 +44,13 @@ export default function GalleryPhotos (props) {
       >
         {props?.images?.map((el, i) => (
           // <GalleryPhotoWidget image={el} key={i} />
-
+          
           <Slide
             media={
               <img src={el} alt='test' style={imgStyle} />
             } 
-            mediaBackgroundStyle={{ backgroundColor: "#38679D" }}
+            mediaBackgroundStyle={{ url: {el} }}
             style={{ backgroundColor: "#38679D" }}
-            
-
           />
         ))}
       </AutoRotatingCarousel>
