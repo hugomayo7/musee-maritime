@@ -83,4 +83,14 @@ class Schedule
 
         return $this;
     }
+
+    /**
+     * Récupérer si le musée est actuellement ouvert
+     * @Groups({"schedule:read"})
+     */
+    public function getMuseumState(): ?string
+    {
+        $date = date("l");
+        return $date;
+    }
 }
