@@ -27,8 +27,9 @@ export default function GalleryPhotos (props) {
           </ImageListItem>
         ))}
       </ImageList>
+
       <AutoRotatingCarousel
-        label='Get started'
+        label='Retour'
         open={handleOpen.open}
         onClose={() => setHandleOpen({ open: false })}
         onStart={() => setHandleOpen({ open: false })}
@@ -37,19 +38,18 @@ export default function GalleryPhotos (props) {
         style={{ position: 'absolute' }}
       >
         {props?.images?.map((el, i) => (
-          // <GalleryPhotoWidget image={el} key={i} />
-          <React.Fragment>
-          <Slide
-            key={0}
-            media={
-              <img src={el} alt='test' />
-            }
-            mediaBackgroundStyle={{ backgroundColor: "#38679D" }}
-            style={{ backgroundColor: "#38679D" }}
-            title='This is a very cool feature'
-            subtitle='Just using this will blow your mind.'
-          />
-          </React.Fragment>
+            <React.Fragment>
+            <Slide
+              key={0}
+              media={
+                <img src={el} alt='test' />
+              }
+              mediaBackgroundStyle={{ backgroundColor: "#38679D" }}
+              style={{ backgroundColor: "#38679D" }}
+              title={props.name[i]}
+              subtitle={props.historic[i]}
+            />
+            </React.Fragment>
         ))}
       </AutoRotatingCarousel>
 
