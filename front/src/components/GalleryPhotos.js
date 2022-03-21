@@ -42,22 +42,12 @@ export default function GalleryPhotos (props) {
           <Slide
             key={0}
             media={
-              <img src='http://www.icons101.com/icon_png/size_256/id_79394/youtube.png' alt='test' />
+              <img src={el} alt='test' />
             }
-            mediaBackgroundStyle={{ backgroundColor: "red" }}
-            style={{ backgroundColor: "red" }}
+            mediaBackgroundStyle={{ backgroundColor: "#38679D" }}
+            style={{ backgroundColor: "#38679D" }}
             title='This is a very cool feature'
             subtitle='Just using this will blow your mind.'
-          />
-          <Slide
-            key={1}
-            media={
-              <img src="http://www.icons101.com/icon_png/size_256/id_80975/GoogleInbox.png" />
-            }
-            mediaBackgroundStyle={{ backgroundColor: "blue" }}
-            style={{ backgroundColor: "blue" }}
-            title="Ever wanted to be popular?"
-            subtitle="Well just mix two colors and your are good to go!"
           />
           </React.Fragment>
         ))}
