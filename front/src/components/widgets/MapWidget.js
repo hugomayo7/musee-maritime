@@ -81,8 +81,8 @@ function MapWidget (props) {
                     .classList.add(styles.bounce);
                 }
               }
-              let selected = props.setSelectedBoat
-              selected(i)
+              let selected_buff = props.setSelectedBoat
+              selected_buff(i)
             })
         }
 

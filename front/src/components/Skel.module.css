@@ -11,6 +11,8 @@
 
 .top {
     width: 80%;
+    animation-delay: 0s;
+
 }
 
 .bot {
@@ -33,10 +35,6 @@
     animation-name: main-anim;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-}
-
-.top {
-    animation-delay: 0s;
 }
 
 .bot > .left > *, .bot > .right{

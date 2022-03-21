@@ -4,7 +4,6 @@ import NavbarView from './views/NavbarView'
 import AnimatedSwitch from './utils/AnimatedSwitch'
 import fetchBoatsPromise from './api/tests/boats'
 import fetchMuseumPromise from './api/tests/museum'
-// import fetchMeteoPromise from './api/tests/meteo'
 import { useState, useEffect } from 'react'
 import fetchWeatherPromise from './api/main/weather'
 
