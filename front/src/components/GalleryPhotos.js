@@ -3,6 +3,11 @@ import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 
+const imgStyle = {
+  width: "100%",
+  height: "100%"
+};
+
 function srcset (image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -28,9 +33,10 @@ export default function GalleryPhotos (props) {
         ))}
       </ImageList>
       <AutoRotatingCarousel
-        label='Get started'
+        label='retour'
+        ButtonProps={{size:'medium'}}
         open={handleOpen.open}
-        onClose={() => setHandleOpen({ open: false })}
+        onClose={() => setHandleOpen({ open: true })}
         onStart={() => setHandleOpen({ open: false })}
         autoplay={true}
         mobile={true}
@@ -38,18 +44,16 @@ export default function GalleryPhotos (props) {
       >
         {props?.images?.map((el, i) => (
           // <GalleryPhotoWidget image={el} key={i} />
-          <React.Fragment>
+
           <Slide
-            key={0}
             media={
-              <img src={el} alt='test' />
-            }
+              <img src={el} alt='test' style={imgStyle} />
+            } 
             mediaBackgroundStyle={{ backgroundColor: "#38679D" }}
             style={{ backgroundColor: "#38679D" }}
-            title='This is a very cool feature'
-            subtitle='Just using this will blow your mind.'
+            
+
           />
-          </React.Fragment>
         ))}
       </AutoRotatingCarousel>
 
