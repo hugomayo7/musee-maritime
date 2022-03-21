@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testExecutions version="1">
-  <file path="C:\Users\louid\OneDrive\Documents\EspaceDeTravail\S3\PROJETMob\2021-2022-info2-dw-projet-musee-maritime-z2-1\front\src\App.test.js">
-    <testCase name="renders app" duration="130"/>
-  </file>
-</testExecutions>
+<unitTest version="1">
+    <file path="C:\Users\louid\OneDrive\Documents\EspaceDeTravail\S3\PROJETMob\2021-2022-info2-dw-projet-musee-maritime-z2-1\front\src\tests\App.test.js">
+        <testCase name="renders app" duration="120"/>
+    </file>
+</unitTest>

@@ -54,8 +54,18 @@
   },
   "jestSonar": {
     "sonar56x": true,
-    "reportPath": "testResults",
-    "reportFile": "sonar-report.xml",
+    "reportFile": "test-report.xml",
     "indent": 4
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!build/**"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
   }
 }
