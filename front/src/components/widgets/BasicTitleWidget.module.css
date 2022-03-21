@@ -1,0 +1,14 @@
+.title {
+    color: #38679d;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.disposition {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem  0 .5rem 1rem;
+
+}

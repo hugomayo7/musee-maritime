@@ -1,0 +1,51 @@
+.disposition{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 .5rem 0 1rem;
+}
+
+.open {
+    background-color: #00C72C;
+}
+
+.close {
+    background-color: red;
+}
+
+.loading {
+    background-color: orange;
+}
+
+.text{
+    font-size: 12px;
+    font-weight: 400;
+    animation: loadingText;
+    animation-duration: 2.5s;
+}
+
+.textLoading {
+    font-size: 12px;
+    font-weight: 400;
+    animation: loadingText;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loadingText {
+    from {
+        color: #111;
+    }
+    50% {
+        color: #bdbdbd;
+    }
+    to {
+        color: #111;
+    }
+}

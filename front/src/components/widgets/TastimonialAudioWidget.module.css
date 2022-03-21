@@ -1,0 +1,10 @@
+.disposition{
+    display: flex;
+    flex-direction: column;
+}
+
+.text{
+    color: #38679D;
+    margin-left: 1rem;
+    margin-bottom: .3rem;
+}

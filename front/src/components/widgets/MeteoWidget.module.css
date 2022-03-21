@@ -1,0 +1,17 @@
+.disposition {
+    display: flex;
+    align-items: center;
+}
+
+.separation::after {
+    content: '•'
+}
+
+.texts > *{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.img {
+    width: 40%;
+}

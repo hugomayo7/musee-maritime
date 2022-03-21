@@ -1,0 +1,20 @@
+.dispositioncenter > * {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center !important;
+}
+
+.dispositioncenter > * > * {
+    margin-top: 0 !important;
+}
+
+.dispositioncenter span {
+    margin-left: .5rem;
+    font-size: 13px !important;
+}
+
+.basictext {
+    margin: 0 1rem;
+    text-align: justify;
+}

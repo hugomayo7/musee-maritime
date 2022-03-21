@@ -1,0 +1,35 @@
+.background {
+    width: 100%;
+    height: 20vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    background: linear-gradient(180.25deg, rgba(196, 196, 196, 0) 35.46%, #38679D 91.04%);
+}
+
+.image{
+    position: absolute;
+    z-index: -1;
+    height: auto;
+    width: 100%;
+}
+
+.text {
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+
+    margin-left: 1rem;
+    margin-bottom: 2px;
+
+    color: #FFFFFF;
+}

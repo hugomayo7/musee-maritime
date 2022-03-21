@@ -1,0 +1,11 @@
+.disposition {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    background-color: #38679D;
+    height: 55px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}

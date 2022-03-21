@@ -12,6 +12,7 @@ services:
     container_name: iutlr-info-nginx-mm
     volumes:
       - ./sfapi:/app/sfapi
+      - ./sfapi/public/img:/app/sfapi/public/img
     depends_on:
       - php-fpm
     ports:
