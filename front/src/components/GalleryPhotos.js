@@ -32,13 +32,15 @@ export default function GalleryPhotos (props) {
         open={handleOpen.open}
         onClose={() => setHandleOpen({ open: false })}
         onStart={() => setHandleOpen({ open: false })}
-        autoplay={false}
+        autoplay={true}
         mobile={true}
         style={{ position: 'absolute' }}
       >
         {props?.images?.map((el, i) => (
           // <GalleryPhotoWidget image={el} key={i} />
+          <React.Fragment>
           <Slide
+            key={0}
             media={
               <img src='http://www.icons101.com/icon_png/size_256/id_79394/youtube.png' alt='test' />
             }
@@ -47,8 +49,20 @@ export default function GalleryPhotos (props) {
             title='This is a very cool feature'
             subtitle='Just using this will blow your mind.'
           />
+          <Slide
+            key={1}
+            media={
+              <img src="http://www.icons101.com/icon_png/size_256/id_80975/GoogleInbox.png" />
+            }
+            mediaBackgroundStyle={{ backgroundColor: "blue" }}
+            style={{ backgroundColor: "blue" }}
+            title="Ever wanted to be popular?"
+            subtitle="Well just mix two colors and your are good to go!"
+          />
+          </React.Fragment>
         ))}
       </AutoRotatingCarousel>
+
     </>
   )
 }
