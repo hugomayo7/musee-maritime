@@ -21,3 +21,4 @@ sonarqube-check:
   allow_failure: true
   only:
     - dev
+    - correction-des-bugs-par-sonarqube
