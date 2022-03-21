@@ -10,7 +10,6 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "jest-sonar-reporter": "^2.0.0",
     "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-audio-player": "^0.17.0",
@@ -50,6 +49,13 @@
   "devDependencies": {
     "react-svg-loader": "^3.0.3",
     "react-test-renderer": "^17.0.2",
-    "svg-url-loader": "^7.1.1"
+    "svg-url-loader": "^7.1.1",
+    "jest-sonar-reporter": "^2.0.0"
+  },
+  "jestSonar": {
+    "sonar56x": true,
+    "reportPath": "testResults",
+    "reportFile": "sonar-report.xml",
+    "indent": 4
   }
 }
