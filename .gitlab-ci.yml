@@ -3,6 +3,9 @@ image: node:latest
 stages:
   - sonarqube-check
 
+variables:
+  SONAR_HOST_URL: https://forge-sonar.iut-larochelle.fr/
+  SONAR_TOKEN: 61eb83fb1fc7158918113c32fe5859eedf51e9d6
 
 sonarqube-check:
   stage: sonarqube-check
