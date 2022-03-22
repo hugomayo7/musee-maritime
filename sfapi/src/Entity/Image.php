@@ -50,7 +50,7 @@ class Image
 
     public function getBoat(): ?Boat
     {
-        return $this->id_boat;
+        return $this->boat;
     }
 
     public function setBoat(?Boat $boat): self
