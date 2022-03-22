@@ -32,13 +32,13 @@ class Image
     private $boat;
 
     /**
-     * @Groups({"image:read", "image:write"})
+     * @Groups({"image:read", "image:write", "boat:read"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
-     * @Groups({"image:read", "image:write"})
+     * @Groups({"image:read", "image:write", "boat:read"})
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $image;
