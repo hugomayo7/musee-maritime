@@ -194,8 +194,8 @@ class Boat
     {
         if ($this->images->removeElement($image)) {
             // set the owning side to null (unless already changed)
-            if ($image->getIdBoat() === $this) {
-                $image->setIdBoat(null);
+            if ($image->getBoat() === $this) {
+                $image->setBoat(null);
             }
         }
 
@@ -218,8 +218,8 @@ class Boat
     {
         if ($this->visits->removeElement($visit)) {
             // set the owning side to null (unless already changed)
-            if ($visit->getIdBoat() === $this) {
-                $visit->setIdBoat(null);
+            if ($visit->getBoat() === $this) {
+                $visit->setBoat(null);
             }
         }
 

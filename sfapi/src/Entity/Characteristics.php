@@ -30,7 +30,7 @@ class Characteristics
      * @ORM\OneToOne(targetEntity=Boat::class, inversedBy="characteristics", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_boat;
+    private $boat;
 
     /**
      * @Groups({"characteristics:read", "characteristics:write"})
@@ -85,14 +85,14 @@ class Characteristics
         return $this->id;
     }
 
-    public function getIdBoat(): ?Boat
+    public function getBoat(): ?Boat
     {
-        return $this->id_boat;
+        return $this->boat;
     }
 
-    public function setId_Boat(Boat $id_boat): self
+    public function setBoat(Boat $boat): self
     {
-        $this->id_boat = $id_boat;
+        $this->boat = $boat;
 
         return $this;
     }
