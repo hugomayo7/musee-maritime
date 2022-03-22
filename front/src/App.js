@@ -3,10 +3,12 @@ import { BrowserRouter } from 'react-router-dom'
 import NavbarView from './views/NavbarView'
 import AnimatedSwitch from './utils/AnimatedSwitch'
 import fetchBoatsPromise from './api/tests/boats'
-import fetchMuseumPromise from './api/tests/museum'
+import fetchMuseumPromise from './api/main/museum'
 // import fetchMeteoPromise from './api/tests/meteo'
 import { useState, useEffect } from 'react'
 import fetchWeatherPromise from './api/main/weather'
+console.log("🚀 ~ file: App.js ~ line 7 ~ fetchMuseumPromise", fetchMuseumPromise)
+
 
 function App() {
   const [boatsData, setBoatsData] = useState()
