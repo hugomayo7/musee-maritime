@@ -1,6 +1,7 @@
 import styles from './WeatherCard.module.css'
 import loadingIcon from '../static/icons/loading.svg'
 import React, { useEffect, useState } from 'react'
+import WeatherBottom from './WeatherBottom'
 
 export default function WeatherCard (props) {
   let id = parseInt(props.id)
@@ -58,26 +59,12 @@ export default function WeatherCard (props) {
           </p>
         </div>
       </div>
-      <div className={styles.bottom}>
-        <p>
-          <span>{precipName}</span>{' '}
-          {precipValue === '' ? precipValue : precipValue[id].precip + '%'}
-        </p>
-        <p>
-          <span>Humidité : </span>
-          {props.weatherData.state === -1
-            ? ''
-            : props.weatherData.data?.daily[id].humidity}
-          %
-        </p>
-        <p>
-          <span>Vent : </span>
-          {props.weatherData.state === -1
-            ? ''
-            : props.weatherData.data?.daily[id].wind}{' '}
-          km/h
-        </p>
-      </div>
+      <WeatherBottom
+        precipName={precipName}
+        precipValue={precipValue}
+        weatherData={props.weatherData}
+        id={id}
+      />
     </div>
   )
 }
