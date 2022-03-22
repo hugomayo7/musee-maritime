@@ -87,12 +87,12 @@ class Characteristics
 
     public function getIdBoat(): ?Boat
     {
-        return $this->id_boat;
+        return $this->boat;
     }
 
-    public function setId_Boat(Boat $id_boat): self
+    public function setId_Boat(Boat $boat): self
     {
-        $this->id_boat = $id_boat;
+        $this->boat = $boat;
 
         return $this;
     }
