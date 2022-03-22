@@ -51,6 +51,8 @@ export default function GalleryPhotos (props) {
             } 
             mediaBackgroundStyle={{ url: {el} }}
             style={{ backgroundColor: "#38679D" }}
+            title={props.name[i]}
+            subtitle={props.historic[i]}
           />
         ))}
       </AutoRotatingCarousel>
