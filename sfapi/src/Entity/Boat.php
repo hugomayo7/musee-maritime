@@ -87,6 +87,7 @@ class Boat
     private $visits;
 
     /**
+     * @Groups({"boat:read",  "boat:write"})
      * @ORM\Column(type="string", length=255)
      */
     private $image;
