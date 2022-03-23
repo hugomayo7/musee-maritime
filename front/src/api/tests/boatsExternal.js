@@ -77,7 +77,7 @@ fetch('http://localhost:8000/api/boats')
                 lgn: response['hydra:member'][0].lng
             },
             image: response['hydra:member'][0].image,
-            images: response['hydra:member'][0].images.map()
+            images: response['hydra:member'][0].images.map((el) => {return el.image})
         }
         return json;
     }).catch(function (err) {

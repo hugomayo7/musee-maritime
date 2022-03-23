@@ -2,9 +2,8 @@ import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import NavbarView from './views/NavbarView'
 import AnimatedSwitch from './utils/AnimatedSwitch'
-import fetchBoatsPromise from './api/tests/boats'
+import fetchBoatsPromise from './api/main/boats'
 import fetchMuseumPromise from './api/main/museum'
-// import fetchMeteoPromise from './api/tests/meteo'
 import { useState, useEffect } from 'react'
 import fetchWeatherPromise from './api/main/weather'
 
@@ -16,7 +15,7 @@ function App () {
   useEffect(() => {
     const fetchData = async () => {
       await fetchBoatsPromise.then(e => {
-        setBoatsData(e.boatsList)
+        setBoatsData(e)
       })
     }
     fetchData()
