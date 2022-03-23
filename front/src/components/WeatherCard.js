@@ -10,24 +10,12 @@ export default function WeatherCard (props) {
   const [precipValue, setPrecipValue] = useState('')
 
   useEffect(() => {
-    if (props.weatherData.state === -1) {
-      setPrecipName('')
+    if (props.weatherData.state !== -1 && id !== 0) {
+      setPrecipValue(props.weatherData.data?.daily)
+      setPrecipName('Precipitations : ')
     } else {
-      if (id !== 0) {
-        setPrecipName('Precipitations : ')
-      } else {
-        setPrecipName('')
-      }
-    }
-
-    if (props.weatherData.state === -1) {
       setPrecipValue('')
-    } else {
-      if (id !== 0) {
-        setPrecipValue(props.weatherData.data?.daily)
-      } else {
-        setPrecipValue('')
-      }
+      setPrecipName('')
     }
   }, [props.weatherData, id])
 
