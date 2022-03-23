@@ -11,25 +11,21 @@ fetch('http://localhost:8000/api/boats')
             name: response['hydra:member'][0].name,
             history: response['hydra:member'][0].historic,
             state: response['hydra:member'][0].state,
-            stateText: 'Montée à bord autorisée',
+            stateText: response['hydra:member'][0].stateText,
             characteristics: {
-                type: 'bateau',
-                'année de lancement': '1989',
-                matériaux: 'Acier',
-                constructeur: 'Ateliers et chantiers de Dieppe',
-                'détenteur initial': 'ARPV',
-                'port initial': 'La Rochelle',
-                'mise en collection': '1993',
-                "prix d'achat": 'Private',
-                'date du rang de monument historique': '06/06/1993',
-                'dernière restoration': '2009 - 2012'
+                'année de lancement': response['hydra:member'][0].characteristics.startYear,
+                matériaux: response['hydra:member'][0].characteristics.material,
+                'détenteur initial': response['hydra:member'][0].characteristics.initialOwner,
+                'port initial': response['hydra:member'][0].characteristics.initialHarbor,
+                'mise en collection': response['hydra:member'][0].characteristics.collectionEntry,
+                "prix d'achat": response['hydra:member'][0].characteristics.buyPrice,
+                'date du rang de monument historique': response['hydra:member'][0].characteristics.historicMonumentRankDate,
+                'dernière restoration': response['hydra:member'][0].characteristics.restore
             },
             tastimonials: {
                 audios: [
                     {
-                        title: 'au son des vagues',
-                        link:
-                            'https://vttts-eu.readspeaker.com/cgi-bin/nph-voicetext/bba1bb3733664358bb09516d85b35914.mp3'
+                        link: response['hydra:member'][0].audio
                     }
                 ],
                 texts: [
@@ -45,35 +41,43 @@ fetch('http://localhost:8000/api/boats')
             },
             visits: {
                 week: {
+                    Lundi: {
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
+                    },
+                    Mardi: {
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
+                    },
                     Mercredi: {
-                        max: 10,
-                        actu: 0
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
                     },
                     Jeudi: {
-                        max: 10,
-                        actu: 2
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
                     },
                     Vendredi: {
-                        max: 10,
-                        actu: 1
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
                     },
                     Samedi: {
-                        max: 10,
-                        actu: 10
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
                     },
                     Dimanche: {
-                        max: 10,
-                        actu: 6
+                        max: response['hydra:member'][0].visits[0].maximumPlaces,
+                        actu: response['hydra:member'][0].visits[0].actual
                     }
                 },
-                visitTime: 30
+                visitTime: response['hydra:member'][0].visits[0].visitTime
             },
             position: {
-                lat: response.lat,
-                lgn: response.lng
+                lat: response['hydra:member'][0].lat,
+                lgn: response['hydra:member'][0].lng
             },
-            image: image1,
-            images: [image1, image2]
+            image: response['hydra:member'][0].image,
+            images: response['hydra:member'][0].images.map()
         }
         return json;
     }).catch(function (err) {
