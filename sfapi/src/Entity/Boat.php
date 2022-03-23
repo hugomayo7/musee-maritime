@@ -52,12 +52,6 @@ class Boat
 
     /**
      * @Groups({"boat:read", "boat:write"})
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $audio;
-
-    /**
-     * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="float")
      */
     private $lat;
@@ -92,10 +86,24 @@ class Boat
      */
     private $image;
 
+    /**
+     * @Groups({"boat:read",  "boat:write"})
+     * @ORM\OneToMany(targetEntity=Audio::class, mappedBy="boat", orphanRemoval=true)
+     */
+    private $audio;
+
+    /**
+     * @Groups({"boat:read",  "boat:write"})
+     * @ORM\OneToMany(targetEntity=Text::class, mappedBy="boat", orphanRemoval=true)
+     */
+    private $texts;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->visits = new ArrayCollection();
+        $this->audio = new ArrayCollection();
+        $this->texts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,18 +155,6 @@ class Boat
     public function setStateText(string $stateText): self
     {
         $this->stateText = $stateText;
-
-        return $this;
-    }
-
-    public function getAudio(): ?string
-    {
-        return $this->audio;
-    }
-
-    public function setAudio(?string $audio): self
-    {
-        $this->audio = $audio;
 
         return $this;
     }
@@ -240,6 +236,66 @@ class Boat
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Audio>
+     */
+    public function getAudio(): Collection
+    {
+        return $this->audio;
+    }
+
+    public function addAudio(Audio $audio): self
+    {
+        if (!$this->audio->contains($audio)) {
+            $this->audio[] = $audio;
+            $audio->setBoat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAudio(Audio $audio): self
+    {
+        if ($this->audio->removeElement($audio)) {
+            // set the owning side to null (unless already changed)
+            if ($audio->getBoat() === $this) {
+                $audio->setBoat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Text>
+     */
+    public function getTexts(): Collection
+    {
+        return $this->texts;
+    }
+
+    public function addText(Text $text): self
+    {
+        if (!$this->texts->contains($text)) {
+            $this->texts[] = $text;
+            $text->setBoat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeText(Text $text): self
+    {
+        if ($this->texts->removeElement($text)) {
+            // set the owning side to null (unless already changed)
+            if ($text->getBoat() === $this) {
+                $text->setBoat(null);
+            }
+        }
 
         return $this;
     }
