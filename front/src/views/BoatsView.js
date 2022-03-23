@@ -5,7 +5,7 @@ import Header from '../components/Header'
 export default function BoatsView (props) {
   return (
     <div>
-      <Header title={"Détail de la flotte"}/>
+      <Header title={"En savoir plus sur la flotte..."}/>
       <BoatsList boatsData={props.boatsData}/>
     </div>
   )

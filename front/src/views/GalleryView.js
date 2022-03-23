@@ -20,7 +20,7 @@ export default function GalleryView (props) {
 
   return (
     <div>
-      <Header title={'Galerie'} />
+      <Header title={'Plus de photos de la flotte...'} />
       {props?.boatsData ? (
         <>
           <GalleryPhotos images={images} />
