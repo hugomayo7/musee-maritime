@@ -4,7 +4,6 @@ import NavbarView from './views/NavbarView'
 import AnimatedSwitch from './utils/AnimatedSwitch'
 import fetchBoatsPromise from './api/tests/boats'
 import fetchMuseumPromise from './api/tests/museum'
-// import fetchMeteoPromise from './api/tests/meteo'
 import { useState, useEffect } from 'react'
 import fetchWeatherPromise from './api/main/weather'
 
@@ -50,25 +49,35 @@ function App() {
         setMeteo({
           state: 1,
           data: {
-            temp: e.current.temp,
-            conditions: e.current.currentConditions,
-            icon:
-              'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
-              e.current.icon +
-              '.svg',
             daily: [
               {
                 temp: e.daily[0].temp,
                 conditions: e.daily[0].currentConditions,
-                icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+                humidity: e.daily[0].humidity,
+                wind: e.daily[0].wind,
+                icon:
+                  'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[0].icon +
                   '.svg',
               },
               {
                 temp: e.daily[1].temp,
+                precip: e.daily[1].precip,
+                humidity: e.daily[1].humidity,
+                wind: e.daily[1].wind,
                 conditions: e.daily[1].currentConditions,
                 icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[1].icon +
+                  '.svg',
+              },
+              {
+                temp: e.daily[2].temp,
+                precip: e.daily[2].precip,
+                humidity: e.daily[2].humidity,
+                wind: e.daily[2].wind,
+                conditions: e.daily[2].currentConditions,
+                icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+                  e.daily[2].icon +
                   '.svg',
               }
             ]
@@ -80,7 +89,7 @@ function App() {
 
     setInterval(() => {
       fetchData()
-    }, 30000)
+    }, 300000)
   }, [setMeteo])
 
   return (

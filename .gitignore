@@ -2,6 +2,10 @@
 .DS_Store
 **/.Ds_Store
 /mysql/
+/sfapi/vendor
 
 *.lock
 package-lock.json
+
+sonar-scanner
+sonar-scanner.bat

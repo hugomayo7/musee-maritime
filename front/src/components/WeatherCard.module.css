@@ -1,0 +1,100 @@
+.topCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 83%;
+    border: solid 3px #38679D;
+    border-radius: 10px;
+    padding: 3%;
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+
+.bottomCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: solid 3px #38679D;
+    border-radius: 10px;
+    margin: 3%;
+    padding: 3%;
+}
+
+.topCard .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding-bottom: 5%;
+}
+
+.bottomCards .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.bottomCards .bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    text-align: center;
+}
+
+.bottomCards .bottom p {
+    font-size: 16px;
+}
+
+.bottomCards .top .temperature {
+    width: 30%;
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.bottomCards .top .temperature p {
+    margin: 0;
+    font-size: 22px;
+}
+
+.conditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.conditions p {
+    font-size: 15px;
+    margin: 0;
+    position: absolute;
+}
+
+.conditions img {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}
+
+.temperature {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+.temperature p {
+    font-size: 22px;
+}
+
+span {
+    color : #38679D;
+    font-size: 16px;
+    font-weight: bold;
+}

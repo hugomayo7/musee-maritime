@@ -1,5 +1,5 @@
 let url =
-  'https://api.openweathermap.org/data/2.5/onecall?exclude=minutely,hourly&lat=46.160329&lon=-1.151139&lang=fr&units=metric&appid=fca9635413333d26a19d647b42a9acde'
+  'https://api.openweathermap.org/data/2.5/onecall?exclude=minutely,hourly&lat=46.160329&lon=-1.151139&lang=fr&units=metric&appid=5da4f72279862bebd6290b013baac45f'
 
 export default async function promise() {
   return fetch(url)
@@ -72,30 +72,29 @@ export default async function promise() {
       }
 
       let json = {
-        current: {
-          temp: Math.round(response.current.temp),
-          currentConditions: (response.current.weather[0].description).charAt(0).toUpperCase() + (response.current.weather[0].description).slice(1),
-          icon: setIcon,
-          precip: response.current.pop,
-          humidity: response.current.humidity,
-          wind: response.current.wind_speed,
-        },
         daily: [
+          {
+            temp: Math.round(response.current.temp),
+            currentConditions: (response.current.weather[0].description).charAt(0).toUpperCase() + (response.current.weather[0].description).slice(1),
+            icon: setIcon,
+            humidity: response.current.humidity,
+            wind: Math.round(response.current.wind_speed * 3.6),
+          },
           {
             temp: Math.round(response.daily[0].temp.day),
             currentConditions: (response.daily[0].weather[0].description).charAt(0).toUpperCase() + (response.daily[0].weather[0].description).slice(1),
             icon: setIcon1,
-            precip: response.daily[0].pop,
+            precip: response.daily[0].pop*100,
             humidity: response.daily[0].humidity,
-            wind: response.daily[0].wind_speed,
+            wind: Math.round(response.daily[0].wind_speed * 3.6),
           },
           {
             temp: Math.round(response.daily[1].temp.day),
             currentConditions: (response.daily[1].weather[0].description).charAt(0).toUpperCase() + (response.daily[1].weather[0].description).slice(1),
             icon: setIcon2,
-            precip: response.daily[1].pop,
+            precip: response.daily[1].pop*100,
             humidity: response.daily[1].humidity,
-            wind: response.daily[1].wind_speed,
+            wind: Math.round(response.daily[1].wind_speed * 3.6),
           }
         ]
       }

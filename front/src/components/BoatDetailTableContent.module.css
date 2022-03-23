@@ -1,0 +1,6 @@
+.loadingrow {
+    background-color: rgb(230, 230, 230);
+    animation-name: main-anim;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}

@@ -28,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --coverage --testResultsProcessor jest-sonar-reporter",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,6 +51,12 @@
   },
   "devDependencies": {
     "react-svg-loader": "^3.0.3",
-    "svg-url-loader": "^7.1.1"
+    "react-test-renderer": "^17.0.2",
+    "svg-url-loader": "^7.1.1",
+    "jest-sonar-reporter": "^2.0.0"
+  },
+  "jestSonar": {
+    "reportFile": "test-report.xml",
+    "indent": 4
   }
 }
