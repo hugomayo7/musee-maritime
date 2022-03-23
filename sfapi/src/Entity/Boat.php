@@ -48,7 +48,7 @@ class Boat
      * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $state_text;
+    private $stateText;
 
     /**
      * @Groups({"boat:read", "boat:write"})
@@ -70,19 +70,19 @@ class Boat
 
     /**
      * @Groups({"boat:read"})
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="id_boat")
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="boat")
      */
     private $images;
 
     /**
      * @Groups({"boat:read"})
-     * @ORM\OneToOne(targetEntity=Characteristics::class, mappedBy="id_boat", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Characteristics::class, mappedBy="boat", cascade={"persist", "remove"})
      */
     private $characteristics;
 
     /**
      * @Groups({"boat:read"})
-     * @ORM\OneToMany(targetEntity=Visit::class, mappedBy="id_boat")
+     * @ORM\OneToMany(targetEntity=Visit::class, mappedBy="boat")
      */
     private $visits;
 
@@ -135,12 +135,12 @@ class Boat
 
     public function getStateText(): ?string
     {
-        return $this->state_text;
+        return $this->stateText;
     }
 
-    public function setState_Text(string $state_text): self
+    public function setStateText(string $stateText): self
     {
-        $this->state_text = $state_text;
+        $this->stateText = $stateText;
 
         return $this;
     }
