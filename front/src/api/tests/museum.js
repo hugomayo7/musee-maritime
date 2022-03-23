@@ -1,6 +1,6 @@
 let json = {
         "museum": {
-            "open": Math.floor(Math.random() * 2) + 0,
+            "open": true,
         }
     };
 

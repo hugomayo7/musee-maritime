@@ -27,37 +27,38 @@ export default function BoatDetailTableCharacWidget (props) {
           <TableBody>
             {props?.characteristics ? (
               <>
-                {Object.keys(props?.characteristics).map((row, i) =>
-                  {if(i < 4) return (
-                    <TableRow
-                      sx={{
-                        '&:last-child td, &:last-child th': { border: 0 },
-                        '&:nth-of-type(odd)': {
-                          backgroundColor: '#DADADA'
-                        },
-                        '&': {
-                          backgroundColor: '#9EC0E7'
-                        }
-                      }}
-                      key={row}
-                    >
-                      <TableCell
-                        component='th'
-                        scope='row'
-                        sx={{ width: '50%' }}
-                        key={row + '0'}
+                {Object.keys(props?.characteristics).map((row, i) => {
+                  if (i < 4)
+                    return (
+                      <TableRow
+                        sx={{
+                          '&:last-child td, &:last-child th': { border: 0 },
+                          '&:nth-of-type(odd)': {
+                            backgroundColor: '#DADADA'
+                          },
+                          '&': {
+                            backgroundColor: '#9EC0E7'
+                          }
+                        }}
+                        key={row}
                       >
-                        {row}
-                      </TableCell>
-                      <TableCell align='right' key={row + '1'}>
-                        {props?.characteristics[row]}
-                      </TableCell>
-                    </TableRow>
-                    
-                  )
-                  else
-                  return false}
-                )}
+                        <TableCell
+                          component='th'
+                          scope='row'
+                          sx={{ width: '50%' }}
+                          key={row + '0'}
+                        >
+                          {row}
+                        </TableCell>
+                        <TableCell align='right' key={row + '1'}>
+                          {props?.characteristics[row]}
+                        </TableCell>
+                      </TableRow>
+                    )
+                  else {
+                    return false
+                  }
+                })}
               </>
             ) : (
               <TableRow
@@ -92,32 +93,35 @@ export default function BoatDetailTableCharacWidget (props) {
               {props?.characteristics ? (
                 Object.keys(props?.characteristics).map((row, i) => {
                   if (i >= 4)
-                    return (<TableRow
-                      sx={{
-                        '&:last-child td, &:last-child th': { border: 0 },
-                        '&:nth-of-type(odd)': {
-                          backgroundColor: '#DADADA'
-                        },
-                        '&': {
-                          backgroundColor: '#9EC0E7'
-                        }
-                      }}
-                      key={row}
-                    >
-                      <TableCell
-                        component='th'
-                        scope='row'
-                        sx={{ width: '50%' }}
-                        key={row + '0'}
+                    return (
+                      <TableRow
+                        sx={{
+                          '&:last-child td, &:last-child th': { border: 0 },
+                          '&:nth-of-type(odd)': {
+                            backgroundColor: '#DADADA'
+                          },
+                          '&': {
+                            backgroundColor: '#9EC0E7'
+                          }
+                        }}
+                        key={row}
                       >
-                        {row}
-                      </TableCell>
-                      <TableCell align='right' key={row + '1'}>
-                        {props?.characteristics[row]}
-                      </TableCell>
-                    </TableRow>)
-                    else
+                        <TableCell
+                          component='th'
+                          scope='row'
+                          sx={{ width: '50%' }}
+                          key={row + '0'}
+                        >
+                          {row}
+                        </TableCell>
+                        <TableCell align='right' key={row + '1'}>
+                          {props?.characteristics[row]}
+                        </TableCell>
+                      </TableRow>
+                    )
+                  else {
                     return false
+                  }
                 })
               ) : (
                 <TableRow

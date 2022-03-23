@@ -32,25 +32,25 @@ class Visit
     private $boat;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $day;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="integer")
      */
-    private $maximum_places;
+    private $maximumPlaces;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="integer")
      */
     private $actual;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="integer", nullable=true)
      */
     private $visitTime;
@@ -86,12 +86,12 @@ class Visit
 
     public function getMaximumPlaces(): ?int
     {
-        return $this->maximum_places;
+        return $this->maximumPlaces;
     }
 
-    public function setMaximum_Places(int $maximum_places): self
+    public function setMaximumPlaces(int $maximumPlaces): self
     {
-        $this->maximum_places = $maximum_places;
+        $this->maximumPlaces = $maximumPlaces;
 
         return $this;
     }

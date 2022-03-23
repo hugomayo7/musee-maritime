@@ -15,18 +15,17 @@ export default function BoatsList (props) {
 
   useEffect(() => {
     if (mounted && props.boatsData) {
-      let content = []
-      for (let i = 0; i < props.boatsData.length; i++) {
+      let content_buff = []
+      for (let i = 0; i < props.boatsData.length; i+=2) {
         let boats = [props.boatsData[i], props.boatsData[i + 1]]
-        content.push(
+        content_buff.push(
           <div key={i}>
             <BoatCard boat={boats[0]}></BoatCard>
             <BoatCard boat={boats[1]}></BoatCard>
           </div>
         )
-        i++
       }
-      setContent(content)
+      setContent(content_buff)
     }
   }, [props.boatsData, setContent])
 

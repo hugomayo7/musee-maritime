@@ -48,7 +48,7 @@ class Boat
      * @Groups({"boat:read", "boat:write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $state_text;
+    private $stateText;
 
     /**
      * @Groups({"boat:read", "boat:write"})
@@ -85,6 +85,11 @@ class Boat
      * @ORM\OneToMany(targetEntity=Visit::class, mappedBy="boat")
      */
     private $visits;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
 
     public function __construct()
     {
@@ -135,12 +140,12 @@ class Boat
 
     public function getStateText(): ?string
     {
-        return $this->state_text;
+        return $this->stateText;
     }
 
-    public function setState_Text(string $state_text): self
+    public function setStateText(string $stateText): self
     {
-        $this->state_text = $state_text;
+        $this->stateText = $stateText;
 
         return $this;
     }
@@ -222,6 +227,18 @@ class Boat
                 $visit->setBoat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
