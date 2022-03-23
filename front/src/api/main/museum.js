@@ -22,7 +22,6 @@ export default async function promise () {
       return result.json()
     })
     .then(result => {
-      console.log('🚀 ~ file: museumExternal.js ~ line 24 ~ result', result)
       let museumOpen = false
       let currentDate = new Date()
       let responseRows = result['hydra:member']
@@ -50,6 +49,11 @@ export default async function promise () {
       }
     })
     .catch(err => {
-      return err
+      console.error(err)
+      return {
+        museum: {
+          open: -1
+        }
+      }
     })
 }
