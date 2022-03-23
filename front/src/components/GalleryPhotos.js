@@ -72,23 +72,23 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 
 
-function srcset (image, size, rows = 1, cols = 1) {
+/*function srcset (image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${size *
-      rows}&fit=crop&auto=format&dpr=2 2x`
+    srcSet: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format&dpr=2 2x`
   }
-}
+}*/
 
 export default function TitlebarImageList(props) {
   return (
-    <ImageList sx={{ width: 760, height: 450}}>
-      <ImageListItem key="Subheader" cols={2}>
+    <ImageList cols={1} /*sx={{ width: 760, height: 450}}*/ rowHeight={'auto'}>
+      <ImageListItem key="Subheader">
       </ImageListItem>
       {props?.images?.map((el, i) => (
-        <ImageListItem key={el.img}>
+        <ImageListItem key={el.images}>
           <img
-            {...srcset(el,121,1,1)}
+            src={`${el}?w=248&fit=crop&auto=format`}
+            srcSet={`${el}?w=248&fit=crop&auto=format&dpr=2 2x`}
             alt={props.name[i]}
             loading="lazy"
           />
@@ -99,6 +99,7 @@ export default function TitlebarImageList(props) {
               <IconButton
                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                 aria-label={`info about ${props.name[i]}`}
+                href={"/bateaux/" + props.id[i]}
               >
                 <InfoIcon />
               </IconButton>

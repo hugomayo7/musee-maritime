@@ -7,23 +7,24 @@ import styles from './GalleryView.module.css'
 export default function GalleryView (props) {
   const [images, setStateImages] = useState([])
   const [name, setName] = useState([])
-  const [historic, setHistoric] = useState([])
+  const [id, setIdBoat] = useState([])
   useEffect(() => {
     let _ = []
     let _name = []
-    let _historic = []
+    let _idBoat = []
     for (let i = 0; i < props?.boatsData?.length; i++) {
       let el = props?.boatsData[i]
       el.images.forEach(element => {
         _.push(element)
       })
       _name.push(el.name)
-      _historic.push(el.historic)
+      _idBoat.push(el.id)
+      console.log(el.id)
     }
 
     setStateImages(_)
     setName(_name)
-    setHistoric(_historic)
+    setIdBoat(_idBoat)
   }, [props, setStateImages])
 
   return (
@@ -31,7 +32,7 @@ export default function GalleryView (props) {
       <Header title={'Galerie'} />
       {props?.boatsData ? (
         <>
-          <GalleryPhotos historic={historic} name={name} images={images} />
+          <GalleryPhotos id={id} name={name} images={images} />
         </>
       ) : (
         <div className={styles.skel}>
