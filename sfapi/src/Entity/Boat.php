@@ -86,6 +86,11 @@ class Boat
      */
     private $visits;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -222,6 +227,18 @@ class Boat
                 $visit->setBoat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
