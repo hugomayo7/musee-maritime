@@ -14,15 +14,15 @@ function App () {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchBoatsPromise.then(e => {
-        setBoatsData(e)
+      await fetchBoatsPromise().then(e => {
+        setBoatsData(e.boatsList)
       })
     }
     fetchData()
 
     setInterval(() => {
       fetchData()
-    }, 10000)
+    }, 100000)
   }, [setBoatsData])
 
   useEffect(() => {

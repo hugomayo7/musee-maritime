@@ -1,86 +1,166 @@
 fetch('http://localhost:8000/api/boats')
-    .then(function (res) {
-        if (res.ok) {
-            return res.json()
-        }
-    })
-    .then(function (response) {
-        console.log(response)
+  .then(function (res) {
+    if (res.ok) {
+      return res.json()
+    }
+  })
+  .then(function (response) {
+    let json = {
+      boatsList: []
+    }
 
-        let json = {
-            name: response['hydra:member'][0].name,
-            history: response['hydra:member'][0].historic,
-            state: response['hydra:member'][0].state,
-            stateText: response['hydra:member'][0].stateText,
-            characteristics: {
-                'année de lancement': response['hydra:member'][0].characteristics.startYear,
-                matériaux: response['hydra:member'][0].characteristics.material,
-                'détenteur initial': response['hydra:member'][0].characteristics.initialOwner,
-                'port initial': response['hydra:member'][0].characteristics.initialHarbor,
-                'mise en collection': response['hydra:member'][0].characteristics.collectionEntry,
-                "prix d'achat": response['hydra:member'][0].characteristics.buyPrice,
-                'date du rang de monument historique': response['hydra:member'][0].characteristics.historicMonumentRankDate,
-                'dernière restoration': response['hydra:member'][0].characteristics.restore
+
+    for (let i = 0; i < response['hydra:member'].length; i++) {
+      let el = response['hydra:member'][i]
+      let _ = {
+        id: el['@id'].replace('/api/boats/', ''),
+        name: el.name,
+        history: el.historic,
+        state: el.state,
+        stateText: el.stateText,
+        characteristics: {
+          'année de lancement': el.characteristics.startYear,
+          matériaux: el.characteristics.material,
+          'détenteur initial': el.characteristics.initialOwner,
+          'port initial': el.characteristics.initialHarbor,
+          'mise en collection': el.characteristics.collectionEntry,
+          "prix d'achat": el.characteristics.buyPrice,
+          'date du rang de monument historique':
+            el.characteristics.historicMonumentRankDate,
+          'dernière restoration': el.characteristics.restore
+        },
+        tastimonials: {
+          audios: [
+            {
+              title: el.audio.title,
+              link: el.audio.file
+            }
+          ],
+          texts: [el.texts.map((text) => {return text.testimony})],
+          photos: [
+            el.images.map(image => {
+              return { link: image.image, text: image.description }
+            })
+          ]
+        },
+        visits: {
+          week: {
+            Lundi: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'lundi') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'lundi') {
+                  return true
+                }
+                return false
+              }).actual
             },
-            tastimonials: {
-                audios: [
-                    {
-                        link: response['hydra:member'][0].audio
-                    }
-                ],
-                texts: [
-                    "Pour l'avoir visité je confirme, ce bateau en vaut la peine !"
-                ],
-                photos: [
-                    {
-                        link:
-                            'https://cdn.discordapp.com/attachments/948214708006166568/948224426179199016/Cpt_de_frC3A9gate_Leverger.png',
-                        text: 'Cette image à été prise en plein océan'
-                    }
-                ]
+            Mardi: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'mardi') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'mardi') {
+                  return true
+                }
+                return false
+              }).actual
             },
-            visits: {
-                week: {
-                    Lundi: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    },
-                    Mardi: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    },
-                    Mercredi: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    },
-                    Jeudi: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    },
-                    Vendredi: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    },
-                    Samedi: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    },
-                    Dimanche: {
-                        max: response['hydra:member'][0].visits[0].maximumPlaces,
-                        actu: response['hydra:member'][0].visits[0].actual
-                    }
-                },
-                visitTime: response['hydra:member'][0].visits[0].visitTime
+            Mercredi: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'mercredi') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'mercredi') {
+                  return true
+                }
+                return false
+              }).actual
             },
-            position: {
-                lat: response['hydra:member'][0].lat,
-                lgn: response['hydra:member'][0].lng
+            Jeudi: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'jeudi') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'jeudi') {
+                  return true
+                }
+                return false
+              }).actual
             },
-            image: response['hydra:member'][0].image,
-            images: response['hydra:member'][0].images.map((el) => {return el.image})
-        }
-        return json;
-    }).catch(function (err) {
-        console.error(err)
-        return err
-    })
+            Vendredi: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'vendredi') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'vendredi') {
+                  return true
+                }
+                return false
+              }).actual
+            },
+            Samedi: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'samedi') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'samedi') {
+                  return true
+                }
+                return false
+              }).actual
+            },
+            Dimanche: {
+              max: el.visits.filter(visit => {
+                if (visit.day === 'dimanche') {
+                  return true
+                }
+                return false
+              }).maximumPlaces,
+              actu: el.visits.filter(visit => {
+                if (visit.day === 'dimanche') {
+                  return true
+                }
+                return false
+              }).actual
+            }
+          },
+          visitTime: el.visits[0].visitTime
+        },
+        position: {
+          lat: el.lat,
+          lgn: el.lng
+        },
+        image: el.image,
+        images: el.images.map(image => {
+          return image.image
+        })
+      }
+      json.boatsList.push(_)
+    }
+
+    return json
+  })
+  .catch(function (err) {
+    console.error("Erreur : ", err)
+    return err
+  })

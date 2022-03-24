@@ -27,7 +27,6 @@ class Text
     /**
      * @Groups({"text:read", "text:write"})
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="texts")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $boat;
 

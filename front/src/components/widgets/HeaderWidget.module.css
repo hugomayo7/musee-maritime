@@ -1,9 +1,43 @@
-.disposition{
+.disposition {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 45px;
-    background-color: #F6F4F5;
+    background-color: #f6f4f5;
+}
+
+.disposition > *:nth-child(1) {
+    animation: opacity-open-left 0.7s;
+}
+
+.disposition > *:nth-child(2) {
+    overflow: hidden;
+}
+
+.disposition > *:nth-child(2) > * {
+    animation: opacity-open-right 0.7s;
+}
+
+@keyframes opacity-open-left {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes opacity-open-right {
+    from {
+        opacity: 0;
+        transform: translate(50%, 0);
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
 }

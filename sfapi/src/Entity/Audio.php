@@ -27,7 +27,6 @@ class Audio
     /**
      * @Groups({"audio:read", "audio:write"})
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="audio")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $boat;
 

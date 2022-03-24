@@ -21,7 +21,7 @@ export default function BoatsList (props) {
         content_buff.push(
           <div key={i}>
             <BoatCard boat={boats[0]}></BoatCard>
-            <BoatCard boat={boats[1]}></BoatCard>
+            {boats[1]?<BoatCard boat={boats[1]}></BoatCard>:<BoatCard></BoatCard>}
           </div>
         )
       }
