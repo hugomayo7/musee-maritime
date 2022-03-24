@@ -1,5 +1,4 @@
 import styles from './BoatWidget.module.css'
-import myPromise from '../../api/tests/boats'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Skel from '../Skel'
@@ -16,13 +15,8 @@ function BoatWidget (props) {
   })
 
   useEffect(() => {
-    const fetchData = async () => {
-      await myPromise.then(e => {
-        if (mounted.current) setBoatsData(e.boatsList)
-      })
-    }
-    fetchData()
-  }, [setBoatsData])
+    setBoatsData(props?.boatsData)
+  }, [setBoatsData, props])
 
   useEffect(() => {
     if (boatsData) setBoatData(boatsData[props.selectedBoat])

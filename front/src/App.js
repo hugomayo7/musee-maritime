@@ -2,19 +2,19 @@ import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import NavbarView from './views/NavbarView'
 import AnimatedSwitch from './utils/AnimatedSwitch'
-import fetchBoatsPromise from './api/tests/boats'
-import fetchMuseumPromise from './api/tests/museum'
+import fetchBoatsPromise from './api/main/boats'
+import fetchMuseumPromise from './api/main/museum'
 import { useState, useEffect } from 'react'
 import fetchWeatherPromise from './api/main/weather'
 
-function App() {
+function App () {
   const [boatsData, setBoatsData] = useState()
   const [museum, setMuseum] = useState({ state: -1 })
   const [meteo, setMeteo] = useState({ state: -1, data: {} })
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchBoatsPromise.then(e => {
+      await fetchBoatsPromise().then(e => {
         setBoatsData(e.boatsList)
       })
     }
@@ -22,12 +22,12 @@ function App() {
 
     setInterval(() => {
       fetchData()
-    }, 10000)
+    }, 100000)
   }, [setBoatsData])
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchMuseumPromise.then(e => {
+      await fetchMuseumPromise().then(e => {
         if (e.museum.open) {
           setMuseum({ state: 1 })
         } else {
@@ -58,7 +58,7 @@ function App() {
                 icon:
                   'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[0].icon +
-                  '.svg',
+                  '.svg'
               },
               {
                 temp: e.daily[1].temp,
@@ -66,9 +66,10 @@ function App() {
                 humidity: e.daily[1].humidity,
                 wind: e.daily[1].wind,
                 conditions: e.daily[1].currentConditions,
-                icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+                icon:
+                  'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[1].icon +
-                  '.svg',
+                  '.svg'
               },
               {
                 temp: e.daily[2].temp,
@@ -76,9 +77,10 @@ function App() {
                 humidity: e.daily[2].humidity,
                 wind: e.daily[2].wind,
                 conditions: e.daily[2].currentConditions,
-                icon: 'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
+                icon:
+                  'https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/' +
                   e.daily[2].icon +
-                  '.svg',
+                  '.svg'
               }
             ]
           }
@@ -99,6 +101,5 @@ function App() {
     </BrowserRouter>
   )
 }
-
 
 export default App
