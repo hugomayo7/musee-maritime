@@ -40,7 +40,7 @@ function App () {
     // Auto refresh 10sec
     setInterval(() => {
       fetchData()
-    }, 10000)
+    }, 300000)
   }, [setMuseum])
 
   useEffect(() => {
