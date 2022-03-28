@@ -7,7 +7,7 @@ import boatMapSelected from '../../static/img/boatMapSelected.svg'
 import L from 'leaflet'
 
 
-function addMarkers(boatsData, map, setSelectedBoat){
+function addMarkers(boatsData, map, setSelectedBoat) {
   for (let i = 0; i < boatsData?.length; i++) {
     let marker = boatsData[i]
     L.marker([marker.position.lat, marker.position.lgn], {
@@ -23,13 +23,15 @@ function addMarkers(boatsData, map, setSelectedBoat){
           top: window.innerHeight,
           behavior: 'smooth'
         })
+        
         for (let y = 0; y < boatsData?.length; y++) {
+          
           document
             .querySelector('#iconMap' + (y + 1).toString())
             .querySelector('img')
             .src = boatMap
 
-            document
+          document
             .querySelector('#iconMap' + (y + 1).toString())
             .querySelector('img')
             .classList.remove(styles.bounce);
@@ -40,9 +42,9 @@ function addMarkers(boatsData, map, setSelectedBoat){
               .querySelector('img')
               .src = boatMapSelected
 
-              document
+            document
               .querySelector('#iconMap' + (y + 1).toString())
-            .querySelector('img')
+              .querySelector('img')
               .classList.add(styles.bounce);
           }
         }
@@ -52,7 +54,7 @@ function addMarkers(boatsData, map, setSelectedBoat){
 }
 
 
-function MapWidget (props) {
+function MapWidget(props) {
   const [map, setMap] = useState()
   const [boatsData, setBoatsData] = useState()
 
