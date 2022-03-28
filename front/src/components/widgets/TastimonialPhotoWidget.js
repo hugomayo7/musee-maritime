@@ -2,10 +2,10 @@ import React from 'react'
 import styles from './TastimonialPhotoWidget.module.css'
 
 export default function TastimonialPhotoWidget (props) {
-  console.log(
-    '🚀 ~ file: TastimonialPhotoWidget.js ~ line 5 ~ TastimonialPhotoWidget ~ props',
-    props
-  )
+  // console.log(
+  //   '🚀 ~ file: TastimonialPhotoWidget.js ~ line 5 ~ TastimonialPhotoWidget ~ props',
+  //   props
+  // )
   return (
     <>
       {props?.photo.map(photo => (

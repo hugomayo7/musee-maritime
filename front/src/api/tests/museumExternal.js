@@ -41,11 +41,11 @@ fetch('http://localhost:8000/api/schedules')
       )
         museumOpen = true
     })
-    console.log({
-      museum: {
-        open: museumOpen
-      }
-    })
+    // console.log({
+    //   museum: {
+    //     open: museumOpen
+    //   }
+    // })
     return {
       museum: {
         open: museumOpen

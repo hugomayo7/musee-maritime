@@ -2,9 +2,9 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 
 /*function srcset (image, size, rows = 1, cols = 1) {
@@ -20,7 +20,7 @@ export default function TitlebarImageList(props) {
       <ImageListItem key="Subheader">
       </ImageListItem>
       {props?.images?.map((el, i) => (
-        <ImageListItem key={el.images}>
+        <ImageListItem key={el}>
           <img
             src={`${el}?w=248&fit=crop&auto=format`}
             srcSet={`${el}?w=248&fit=crop&auto=format&dpr=2 2x`}
@@ -31,13 +31,13 @@ export default function TitlebarImageList(props) {
             title={props.name[i]}
             subtitle=''
             actionIcon={
-              <IconButton
+              <Link
                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                 aria-label={`info about ${props.name[i]}`}
-                href={"/bateaux/" + props.id[i]}
+                to={"/bateaux/" + props.id[i]}
               >
                 <InfoIcon />
-              </IconButton>
+              </Link>
             }
           />
         </ImageListItem>

@@ -3,10 +3,10 @@ import React from 'react'
 import ReactAudioPlayer from 'react-audio-player'
 
 export default function TastimonialAudioWidget (props) {
-  console.log(
-    '🚀 ~ file: TastimonialAudioWidget.js ~ line 6 ~ TastimonialAudioWidget ~ props',
-    props
-  )
+  // console.log(
+  //   '🚀 ~ file: TastimonialAudioWidget.js ~ line 6 ~ TastimonialAudioWidget ~ props',
+  //   props
+  // )
 
   return (
     <div className={styles.disposition}>
