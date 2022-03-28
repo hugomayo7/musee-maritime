@@ -16,6 +16,8 @@ function addMarkers(boatsData, map, setSelectedBoat) {
         className: `${styles.icon}`
       })
     }).addTo(map)
+    console.log(document
+      .querySelector('#iconMap' + (i + 1).toString()));
     document
       .querySelector('#iconMap' + (i + 1).toString())
       .addEventListener('click', e => {
@@ -23,7 +25,7 @@ function addMarkers(boatsData, map, setSelectedBoat) {
           top: window.innerHeight,
           behavior: 'smooth'
         })
-        
+
         for (let y = 0; y < boatsData?.length; y++) {
           
           document
