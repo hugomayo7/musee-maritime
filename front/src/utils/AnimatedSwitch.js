@@ -20,7 +20,7 @@ export default function AnimatedSwitch(props) {
           element={<BoatsView boatsData={props?.boatsData} />}
         />
         <Route
-          path='gallerie'
+          path='galerie'
           element={<GalleryView boatsData={props?.boatsData} />}
         />
         <Route

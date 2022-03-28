@@ -19,7 +19,6 @@ export default function GalleryView (props) {
       })
       _name.push(el.name)
       _idBoat.push(el.id)
-      console.log(el.id)
     }
 
     setStateImages(_)
@@ -32,7 +31,7 @@ export default function GalleryView (props) {
       <Header title={'Plus de photos de la flotte...'} />
       {props?.boatsData ? (
         <>
-          <GalleryPhotos id={id} name={name} images={images} />
+          <GalleryPhotos id={id} name={name} images={images}/>
         </>
       ) : (
         <div className={styles.skel}>

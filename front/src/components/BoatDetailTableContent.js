@@ -40,7 +40,9 @@ export default function BoatDetailTableContent (props) {
             <TableCell align='right' className={styles.loadingrow}></TableCell>
           </TableRow>
         ) : (
-          { timetables }
+          <>
+          {timetables}
+          </>
         )}
       </TableBody>
     </Table>

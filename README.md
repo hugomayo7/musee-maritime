@@ -15,3 +15,17 @@ figure "modèle du domaine US1"
 | nom du dev (*) | Admin | retourne la liste des navires | géré par ApiPlatform | optionnel | GET /api/navires |
 
 (*) à décider au sein de l'équipe ultérieurement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
