@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from '@mui/material/Table'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
@@ -12,9 +12,12 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import styles from './BoatDetailTablePlanningWidget.module.css'
 import PlanningReservationWidget from './PlanningReservationWidget'
 import BoatDetailTableContent from '../BoatDetailTableContent'
+import fetchBoatsPromise from '../../api/main/boats'
+import { useParams } from 'react-router-dom'
 
 export default function BoatDetailTablePlanningWidget (props) {
   const [open, setOpen] = React.useState(false)
+  const { id } = useParams()
   const [boatReservation, setBoatReservation] = React.useState()
   const [openModal, setOpenModal] = React.useState(false)
   const handleOpen = (e, row) => {
@@ -22,6 +25,40 @@ export default function BoatDetailTablePlanningWidget (props) {
     setBoatReservation(row)
   }
   const handleClose = () => setOpenModal(false)
+  const [timetables, setTimetables] = useState()
+
+  useEffect(() => {
+    setTimetables(props.timetables)
+  }, [props?.timetables])
+
+
+  const confirmReservation = async () => {
+    // Send reservation to the server
+    fetch(`http://localhost:8000${props.timetables[boatReservation].data["@id"]}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/merge-patch+json'
+      },
+      body: JSON.stringify({
+        actual: props?.timetables[boatReservation]?.data.actual + 1
+      })
+    })
+      .then(res => {
+        if (res) return res.json()
+      })
+      .then(async res => {
+        // Refresh
+        await fetchBoatsPromise().then(e => {
+          let boat = e.boatsList.find(e => e.id === id)
+          setTimetables(boat.visits.week)
+          console.log(boat.visits.week)
+          handleClose()
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
 
   return (
     <>
@@ -41,7 +78,7 @@ export default function BoatDetailTablePlanningWidget (props) {
           <BoatDetailTableContent
             handleOpen={handleOpen}
             state={props?.state}
-            timetables={props?.timetables}
+            timetables={timetables}
           />
         </TableContainer>
       </Collapse>
@@ -61,6 +98,7 @@ export default function BoatDetailTablePlanningWidget (props) {
           handleClose={handleClose}
           openModal={openModal}
           boats={props?.boatsData}
+          confirmReservation={confirmReservation}
         />
       ) : (
         <></>
