@@ -45,102 +45,60 @@ export default async function promise() {
           visits: {
             week: {
               Lundi: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'lundi') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'lundi') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               },
               Mardi: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'mardi') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'mardi') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               },
               Mercredi: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'mercredi') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'mercredi') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               },
               Jeudi: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'jeudi') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'jeudi') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               },
               Vendredi: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'vendredi') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'vendredi') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               },
               Samedi: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'samedi') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'samedi') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               },
               Dimanche: {
-                max: el.visits.filter(visit => {
+                data: el.visits.filter(visit => {
                   if (visit.day === 'dimanche') {
                     return true
                   }
                   return false
-                })[0].maximumPlaces,
-                actu: el.visits.filter(visit => {
-                  if (visit.day === 'dimanche') {
-                    return true
-                  }
-                  return false
-                })[0].actual
+                })[0],
               }
             },
             visitTime: el.visits[0].visitTime

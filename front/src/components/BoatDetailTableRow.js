@@ -17,7 +17,7 @@ export default function BoatDetailTableRow (props) {
             component='th'
             scope='row'
             className={
-              props?.timetables[row]?.actu === props?.timetables[row]?.max
+              props?.timetables[row]?.data.actual === props?.timetables[row]?.data.maximumPlaces
                 ? styles.fullrow
                 : ''
             }
@@ -27,22 +27,22 @@ export default function BoatDetailTableRow (props) {
           <TableCell
             align='right'
             className={
-              props?.timetables[row]?.actu === props?.timetables[row]?.max
+              props?.timetables[row]?.data.actual === props?.timetables[row]?.data.maximumPlaces
                 ? styles.fullrow
                 : ''
             }
           >
-            {props?.timetables[row]?.actu}/{props?.timetables[row]?.max}
+            {props?.timetables[row]?.data.actual}/{props?.timetables[row]?.data.maximumPlaces}
           </TableCell>
           <TableCell
             align='right'
             className={
-              props?.timetables[row]?.actu === props?.timetables[row]?.max
+              props?.timetables[row]?.data.actual === props?.timetables[row]?.data.maximumPlaces
                 ? styles.fullrow
                 : ''
             }
           >
-            {props?.timetables[row]?.actu >= props?.timetables[row]?.max ? (
+            {props?.timetables[row]?.data.actual >= props?.timetables[row]?.data.maximumPlaces ? (
               <Button
                 onClick={e => {
                   props.handleOpen(e, row)

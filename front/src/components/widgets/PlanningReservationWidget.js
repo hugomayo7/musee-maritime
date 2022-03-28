@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import styles from './PlanningReservationWidget.module.css'
 
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -25,6 +26,7 @@ const styleTitle = {
   fontSize: '18px',
   mb: 2
 }
+
 
 export default function PlanningReservationWidget (props) {
   return (
@@ -59,7 +61,7 @@ export default function PlanningReservationWidget (props) {
               <Button variant='outlined' color='error' onClick={props.handleClose}>
                 Annuler
               </Button>
-              <Button variant='contained' color='success' >
+              <Button variant='contained' color='success' onClick={props?.confirmReservation}>
                 Confirmer
               </Button>
             </Stack>
