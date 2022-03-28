@@ -38,7 +38,7 @@ class Text
 
     /**
      * @Groups({"text:read", "text:write", "boat:read"})
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=2000)
      */
     private $testimony;
 

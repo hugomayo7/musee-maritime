@@ -25,6 +25,7 @@ class AppFixtures extends Fixture
         $france1->setStateText("Ouvert");
         $france1->setLat("46.15085659418591");
         $france1->setLng("-1.1517760553310752");
+        $france1->setImage("https://cdn.discordapp.com/attachments/948214708006166568/948222551568551936/france1.png");
         $manager->persist($france1);
         $caracteristiquesFrance1 = new Characteristics();
         $caracteristiquesFrance1->setBoat($france1);
@@ -57,11 +58,42 @@ class AppFixtures extends Fixture
         $temoignageFrance1->setTitle("Un membre de l'équipage");
         $temoignageFrance1->setTestimony("Quand on était en route, il y avait un officier de quart et un matelot de passerelle, mais en pêche j’étais à la passerelle de 6 heures à minuit et encore minuit et 6 heures je me relevais à chaque virage de chalut. L’Angoumois était à la vente le lundi, puis à la marée suivante le mercredi. Entre deux marées, trois jours d’arrêt. L’hiver on se rapprochait 24 heures à l’avance pour arriver à temps. En janvier 1986, on a essuyé un ouragan (force 12), on est resté 80 heures à la cape. Il y avait de quoi avoir peur.");
         $manager->persist($temoignageFrance1);
-        $visitFrance1 = new Visit();
-        $visitFrance1->setBoat($france1);
-        $visitFrance1->setMaximumPlaces(50);
-        $visitFrance1->setActual(0);
-        $manager->persist($visitFrance1);
+        $visitLundiFrance1 = new Visit();
+        $visitLundiFrance1->setDay("monday");
+        $visitLundiFrance1->setBoat($france1);
+        $visitLundiFrance1->setMaximumPlaces(50);
+        $visitLundiFrance1->setActual(0);
+        $manager->persist($visitLundiFrance1);
+        $visitMardiFrance1 = new Visit();
+        $visitMardiFrance1->setDay("tuesday");
+        $visitMardiFrance1->setBoat($france1);
+        $visitMardiFrance1->setMaximumPlaces(50);
+        $visitMardiFrance1->setActual(0);
+        $manager->persist($visitMardiFrance1);
+        $visitMercrediFrance1 = new Visit();
+        $visitMercrediFrance1->setDay("wednesday");
+        $visitMercrediFrance1->setBoat($france1);
+        $visitMercrediFrance1->setMaximumPlaces(50);
+        $visitMercrediFrance1->setActual(0);
+        $manager->persist($visitMercrediFrance1);
+        $visitJeudiFrance1 = new Visit();
+        $visitJeudiFrance1->setDay("tuesday");
+        $visitJeudiFrance1->setBoat($france1);
+        $visitJeudiFrance1->setMaximumPlaces(50);
+        $visitJeudiFrance1->setActual(0);
+        $manager->persist($visitJeudiFrance1);
+        $visitVendrediFrance1 = new Visit();
+        $visitVendrediFrance1->setDay("tuesday");
+        $visitVendrediFrance1->setBoat($france1);
+        $visitVendrediFrance1->setMaximumPlaces(50);
+        $visitVendrediFrance1->setActual(0);
+        $manager->persist($visitVendrediFrance1);
+        $visitSamediFrance1 = new Visit();
+        $visitSamediFrance1->setDay("tuesday");
+        $visitSamediFrance1->setBoat($france1);
+        $visitSamediFrance1->setMaximumPlaces(50);
+        $visitSamediFrance1->setActual(0);
+        $manager->persist($visitSamediFrance1);
 
         // Horaires
         $lundi = new Schedule();
@@ -69,26 +101,31 @@ class AppFixtures extends Fixture
         $lundi->setOpening("10:00");
         $lundi->setClosing("19:00");
         $manager->persist($lundi);
+
         $mardi = new Schedule();
         $mardi->setDay("tuesday");
         $mardi->setOpening("10:00");
         $mardi->setClosing("19:00");
         $manager->persist($mardi);
+
         $mercredi = new Schedule();
         $mercredi->setDay("wednesday");
         $mercredi->setOpening("10:00");
         $mercredi->setClosing("19:00");
         $manager->persist($mercredi);
+
         $jeudi = new Schedule();
         $jeudi->setDay("thursday");
         $jeudi->setOpening("10:00");
         $jeudi->setClosing("19:00");
         $manager->persist($jeudi);
+
         $vendredi = new Schedule();
         $vendredi->setDay("friday");
         $vendredi->setOpening("10:00");
         $vendredi->setClosing("19:00");
         $manager->persist($vendredi);
+
         $samedi = new Schedule();
         $samedi->setDay("saturday");
         $samedi->setOpening("10:00");
