@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
         $france1->setStateText("Ouvert");
         $france1->setLat("46.15085659418591");
         $france1->setLng("-1.1517760553310752");
-        $france1->setImage("img/france1.jpg");
+        $france1->setImage("img/france1-1.jpg");
         $manager->persist($france1);
         $caracteristiquesFrance1 = new Characteristics();
         $caracteristiquesFrance1->setBoat($france1);
@@ -272,7 +272,7 @@ class AppFixtures extends Fixture
         $joshua->setStateText("Ouvert");
         $joshua->setLat("46.151900935823114");
         $joshua->setLng("-1.151397351474135");
-        $joshua->setImage("img/joshua1.jpg");
+        $joshua->setImage("img/joshua3.jpg");
         $manager->persist($joshua);
         $caracteristiquesJoshua = new Characteristics();
         $caracteristiquesJoshua->setBoat($joshua);
