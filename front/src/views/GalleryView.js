@@ -15,7 +15,7 @@ export default function GalleryView (props) {
     for (let i = 0; i < props?.boatsData?.length; i++) {
       let el = props?.boatsData[i]
       el.images.forEach(element => {
-        _.push(element)
+        _.push([element, el.name, el.id])
       })
       _name.push(el.name)
       _idBoat.push(el.id)
@@ -31,7 +31,7 @@ export default function GalleryView (props) {
       <Header title={'Plus de photos de la flotte...'} />
       {props?.boatsData ? (
         <>
-          <GalleryPhotos id={id} name={name} images={images}/>
+          {<GalleryPhotos id={id} name={name} images={images}/>}
         </>
       ) : (
         <div className={styles.skel}>
