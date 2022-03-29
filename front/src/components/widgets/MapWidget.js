@@ -68,9 +68,9 @@ function MapWidget(props) {
     const createMap = () => {
       if (!map) {
         let a_map = L.map('map', {
-          center: [46.152059, -1.151814],
+          center: [46.15297993956336, -1.1741616281560945],
           zoomControl: false,
-          zoom: 16,
+          zoom: 12,
           layers: [
             L.tileLayer(
               'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
