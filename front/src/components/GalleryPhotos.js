@@ -35,7 +35,7 @@ export default function TitlebarImageList(props) {
                 aria-label={`info about ${el[1]}`}
                 to={"/bateaux/" + el[2]}
               >
-                <InfoIcon />
+                <InfoIcon style={{ color: "white", marginRight: "10px" }} />
               </Link>
             }
           />
