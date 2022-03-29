@@ -3,7 +3,7 @@ Dans ce projet nous allons créer un site web pour le musée maritime de la Roch
 Le but étant de pouvoir afficher les différents bateaux du musée, leurs détails, photos, ...
 
 Voici un example de la page d'accueil
-![image d'exemple](img/app_image1.JPG)
+<img src="img/app_image1.JPG" width="150" height="280" alt="image demonstration application">
 
 ## Fonctionnement du projet
 
@@ -33,7 +33,7 @@ Les conteneurs sont disponibles à l'adresse suivante :
 Pour lancer le frontend indépendamment de la stack docker :
 
 ```
-cd front && npm start
+cd front && yarn start
 ```
 
 ## Déroulement du projet
@@ -45,6 +45,7 @@ Elles sont toutes accessibles à l'adressse suivante :
 De plus un script python à été crée pour les tests de nommage des commits.
 
 ### Architecture && Conception
+Toutes les US (Users Stories) réalisés ainsi que les diagrammes de classes et découpages en composants sont disponibles sur le [wiki](https://forge.iut-larochelle.fr/mhacala/2021-2022-info2-dw-projet-musee-maritime-z2-1/-/wikis/Spec-Conception) du projet.
 
 ### Base de donnée && Api
 Voici un exemple du [site](http://localhost:8000/api) de la doc de l'api.
@@ -55,3 +56,10 @@ Les schémas de base de donnée sont disponibles à l'adresse suivante :
 
 ![schéma de la base de donnée](img/bd_schema.JPG)
 
+
+## Contributeurs
+ - Amélien Bernard
+ - Mayonobe Hugo
+ - David Arthur
+ - Hacala Maude
+ - Huort Louis
