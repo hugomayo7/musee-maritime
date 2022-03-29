@@ -30,52 +30,52 @@ class Characteristics
      * @ORM\OneToOne(targetEntity=Boat::class, inversedBy="characteristics", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_boat;
+    private $boat;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $start_year;
+    private $startYear;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $material;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255)
      */
-    private $initial_owner;
+    private $initialOwner;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255)
      */
-    private $initial_harbor;
+    private $initialHarbor;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $collection_entry;
+    private $collectionEntry;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255)
      */
-    private $buy_price;
+    private $buyPrice;
 
     /**
-     * @Groups({"characteristics:read", "characteristics:write"})
+     * @Groups({"characteristics:read", "characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $historic_monument_rank_date;
+    private $historicMonumentRankDate;
 
     /**
-     * @Groups({"characteristics:read","characteristics:write"})
+     * @Groups({"characteristics:read","characteristics:write", "boat:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $restore;
@@ -85,26 +85,26 @@ class Characteristics
         return $this->id;
     }
 
-    public function getIdBoat(): ?Boat
+    public function getBoat(): ?Boat
     {
-        return $this->id_boat;
+        return $this->boat;
     }
 
-    public function setId_Boat(Boat $id_boat): self
+    public function setBoat(Boat $boat): self
     {
-        $this->id_boat = $id_boat;
+        $this->boat = $boat;
 
         return $this;
     }
 
     public function getStartYear(): ?int
     {
-        return $this->start_year;
+        return $this->startYear;
     }
 
-    public function setStart_Year(int $start_year): self
+    public function setStartYear(int $startYear): self
     {
-        $this->start_year = $start_year;
+        $this->startYear = $startYear;
 
         return $this;
     }
@@ -123,60 +123,60 @@ class Characteristics
 
     public function getInitialOwner(): ?string
     {
-        return $this->initial_owner;
+        return $this->initialOwner;
     }
 
-    public function setInitial_Owner(string $initial_owner): self
+    public function setInitialOwner(string $initialOwner): self
     {
-        $this->initial_owner = $initial_owner;
+        $this->initialOwner = $initialOwner;
 
         return $this;
     }
 
     public function getInitialHarbor(): ?string
     {
-        return $this->initial_harbor;
+        return $this->initialHarbor;
     }
 
-    public function setInitial_Harbor(string $initial_harbor): self
+    public function setInitialHarbor(string $initialHarbor): self
     {
-        $this->initial_harbor = $initial_harbor;
+        $this->initialHarbor = $initialHarbor;
 
         return $this;
     }
 
     public function getCollectionEntry(): ?string
     {
-        return $this->collection_entry;
+        return $this->collectionEntry;
     }
 
-    public function setCollection_Entry(?string $collection_entry): self
+    public function setCollectionEntry(?string $collectionEntry): self
     {
-        $this->collection_entry = $collection_entry;
+        $this->collectionEntry = $collectionEntry;
 
         return $this;
     }
 
     public function getBuyPrice(): ?string
     {
-        return $this->buy_price;
+        return $this->buyPrice;
     }
 
-    public function setBuy_Price(string $buy_price): self
+    public function setBuyPrice(string $buyPrice): self
     {
-        $this->buy_price = $buy_price;
+        $this->buyPrice = $buyPrice;
 
         return $this;
     }
 
     public function getHistoricMonumentRankDate(): ?string
     {
-        return $this->historic_monument_rank_date;
+        return $this->historicMonumentRankDate;
     }
 
-    public function setHistoric_Monument_Rank_Date(?string $historic_monument_rank_date): self
+    public function setHistoricMonumentRankDate(?string $historicMonumentRankDate): self
     {
-        $this->historic_monument_rank_date = $historic_monument_rank_date;
+        $this->historicMonumentRankDate = $historicMonumentRankDate;
 
         return $this;
     }

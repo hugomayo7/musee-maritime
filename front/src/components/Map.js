@@ -10,7 +10,7 @@ function Map (props) {
   return (
     <div className={`${styles.disposition}`}>
       <MapWidget setSelectedBoat={setSelectedBoat} boatsData={props.boatsData} />
-      <BoatWidget selectedBoat={selectedBoat} />
+      <BoatWidget selectedBoat={selectedBoat} boatsData={props.boatsData}/>
     </div>
   )
 }

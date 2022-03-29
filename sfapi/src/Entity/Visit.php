@@ -29,28 +29,28 @@ class Visit
      * @ORM\ManyToOne(targetEntity=Boat::class, inversedBy="visits")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_boat;
+    private $boat;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $day;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="integer")
      */
-    private $maximum_places;
+    private $maximumPlaces;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="integer")
      */
     private $actual;
 
     /**
-     * @Groups({"visit:read", "visit:write"})
+     * @Groups({"visit:read", "visit:write", "boat:read"})
      * @ORM\Column(type="integer", nullable=true)
      */
     private $visitTime;
@@ -60,14 +60,14 @@ class Visit
         return $this->id;
     }
 
-    public function getIdBoat(): ?Boat
+    public function getBoat(): ?Boat
     {
-        return $this->id_boat;
+        return $this->boat;
     }
 
-    public function setId_Boat(?Boat $id_boat): self
+    public function setBoat(?Boat $boat): self
     {
-        $this->id_boat = $id_boat;
+        $this->boat = $boat;
 
         return $this;
     }
@@ -86,12 +86,12 @@ class Visit
 
     public function getMaximumPlaces(): ?int
     {
-        return $this->maximum_places;
+        return $this->maximumPlaces;
     }
 
-    public function setMaximum_Places(int $maximum_places): self
+    public function setMaximumPlaces(int $maximumPlaces): self
     {
-        $this->maximum_places = $maximum_places;
+        $this->maximumPlaces = $maximumPlaces;
 
         return $this;
     }

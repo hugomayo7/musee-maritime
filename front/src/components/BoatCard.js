@@ -1,14 +1,21 @@
 import React from 'react'
 import styles from './BoatCard.module.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function BoatCard (props) {
-  const boat = props?.boat
-
   return (
-    <Link to={"/bateaux/" + boat.id} className={`${styles.maincard}`}>
-      <img src={boat.image} alt='Boat'></img>
-      <span>{boat.name}</span>
-    </Link>
+    <>
+      {props?.boat ? (
+        <Link
+          to={'/bateaux/' + props?.boat?.id}
+          className={`${styles.maincard}`}
+        >
+          <img src={props?.boat?.image} alt='Boat'></img>
+          <span>{props?.boat?.name}</span>
+        </Link>
+      ) : (
+        <div className={`${styles.maincard} ${styles.empty}`}></div>
+      )}
+    </>
   )
 }

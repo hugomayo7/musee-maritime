@@ -8,3 +8,8 @@
     margin-left: 1rem;
     margin-bottom: .3rem;
 }
+
+.audioTitle {
+    display: flex;
+    justify-content: flex-start;
+}

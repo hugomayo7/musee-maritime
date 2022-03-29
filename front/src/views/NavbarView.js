@@ -7,7 +7,7 @@ export default function NavbarView () {
     <div className={`${styles.disposition}`}>
       <NavElement route="" name="Accueil"></NavElement>
       <NavElement route="bateaux" name="La flotte"></NavElement>
-      <NavElement route="gallerie" name="Photos"></NavElement>
+      <NavElement route="galerie" name="Photos"></NavElement>
     </div>
   )
 }

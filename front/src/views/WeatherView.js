@@ -6,7 +6,7 @@ export default function WeatherView(props) {
 
   return (
     <div className={styles.maindiv}>
-      <Header title={"En savoir plus sur la météo"} />
+      <Header title={"Quel temps fait il ?"} />
       <div className={styles.weatherCards}>
         <div className={styles.titleBox}><p className={styles.title}>Aujourd'hui</p></div>
         <div className={styles.today}>
