@@ -93,10 +93,7 @@ function App () {
       fetchData()
     }, 300000)
   }, [setMeteo])
-
   
-  console.log(boatsData);
-
   return (
     <BrowserRouter>
       <AnimatedSwitch boatsData={boatsData} museum={museum} meteo={meteo} />

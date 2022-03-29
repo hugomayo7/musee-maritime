@@ -23,8 +23,8 @@ class AppFixtures extends Fixture
         $france1->setHistoric("Le France 1 a assuré ses missions pendant 27 années jusqu'à l'entrée en service des satellites météorologiques en 1985. Il devait alors opérer de longues stations sur les lieux de formation et de passage des pires dépressions au large de l'océan Atlantique. Fouetté par des vents atteignant parfois 100 nœuds (180 km/h), balancé par des creux de 20 mètres, ce navire, quel que soit le temps, a rempli sa mission pendant près de 30 ans, et a fait la pluie et le beau temps pour la Météorologie Nationale.");
         $france1->setState("1");
         $france1->setStateText("Ouvert");
-        $france1->setLat("46.15085659418591");
-        $france1->setLng("-1.1517760553310752");
+        $france1->setLat("46.151465941408816");
+        $france1->setLng("-1.151783883197618");
         $france1->setImage("img/france1-1.jpg");
         $manager->persist($france1);
         $caracteristiquesFrance1 = new Characteristics();
@@ -200,8 +200,8 @@ class AppFixtures extends Fixture
         $angoumois->setHistoric("Ce chalutier construit en 1969 par les Ateliers et Chantiers de Dieppe a été commandé par Jean-Claude Menu, Armateur de l’Association Rochelaise de Pêche à Vapeur (ARPV). « L’Angoumois est le deuxième pêche arrière que j’ai fait construire » explique-t-il. « Il a été précédé par le Saintonge. Je voulais des chalutiers de 38 mètres pêche arrière avec rampe et entrepont. Cette disposition n’existait alors que sur les navires de 55 à 65 mètres. Les chantiers de Dieppe ont accepté de les réaliser. Ils se sont révélés d’excellents bateaux. D’ailleurs avec l’Angoumois, je n’ai jamais eu de pépin »");
         $angoumois->setState("1");
         $angoumois->setStateText("Ouvert");
-        $angoumois->setLat("46.130479083242327");
-        $angoumois->setLng("-1.1515975367774889");
+        $angoumois->setLat("46.1507040290286");
+        $angoumois->setLng("-1.1516057437930807");
         $angoumois->setImage("img/angoumois1.png");
         $manager->persist($angoumois);
         $caracteristiquesAngoumois = new Characteristics();
