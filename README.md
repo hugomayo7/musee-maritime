@@ -2,8 +2,10 @@
 Dans ce projet nous allons créer un site web pour le musée maritime de la Rochelle.    
 Le but étant de pouvoir afficher les différents bateaux du musée, leurs détails, photos, ...
 
-Voici un example de la page d'accueil
-<img src="img/app_image1.JPG" width="150" height="280" alt="image demonstration application">
+Voici un example de la page d'accueil:  
+
+<img src="img/app_image2.JPG" width="40%" height="auto" alt="image demonstration application">
+<img src="img/app_image1.JPG" width="40%" height="auto" alt="image demonstration application">
 
 ## Fonctionnement du projet
 
@@ -13,7 +15,9 @@ Le projet repose sur une stack docker, composée de trois conteneurs:
 - **sfapi**: contient l'api réalisé à l'aide symfony et api platform
 - **mysql**: contient la base de données de l'application
 
-Le conteneur front intérargi avec l'api sfapi pour récupérer les données de la base de données mysql.
+Le conteneur front intérargi avec l'api sfapi pour récupérer les données de la base de données mysql.  
+
+<img src="img/anim_stack.svg">
 
 ## Lancement du projet
 
