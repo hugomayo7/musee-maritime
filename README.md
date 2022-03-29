@@ -4,8 +4,8 @@ Le but étant de pouvoir afficher les différents bateaux du musée, leurs déta
 
 Voici un example de la page d'accueil:  
 
-<img src="img/app_image2.JPG" width="40%" height="auto" alt="image demonstration application">
 <img src="img/app_image1.JPG" width="40%" height="auto" alt="image demonstration application">
+<img src="img/app_image2.JPG" width="40%" height="auto" alt="image demonstration application">
 
 ## Fonctionnement du projet
 
@@ -46,7 +46,7 @@ Pour le bon déroulement du projet, nous avons mis en place un certain nombres d
 Elles sont toutes accessibles à l'adressse suivante :
 [Wiki : Conventions du projet](https://forge.iut-larochelle.fr/mhacala/2021-2022-info2-dw-projet-musee-maritime-z2-1/-/wikis/D%C3%A9finition-des-conventions)
 
-De plus un script python à été crée pour les tests de nommage des commits.
+De plus un script python à été crée pour vérifier le bon nommage des commits.
 
 ### Architecture && Conception
 Toutes les US (Users Stories) réalisés ainsi que les diagrammes de classes et découpages en composants sont disponibles sur le [wiki](https://forge.iut-larochelle.fr/mhacala/2021-2022-info2-dw-projet-musee-maritime-z2-1/-/wikis/Spec-Conception) du projet.
