@@ -76,7 +76,7 @@ class AppFixtures extends Fixture
         $visitMercrediFrance1->setDay("mercredi");
         $visitMercrediFrance1->setBoat($france1);
         $visitMercrediFrance1->setMaximumPlaces(50);
-        $visitMercrediFrance1->setActual(0);
+        $visitMercrediFrance1->setActual(49);
         $visitMercrediFrance1->setVisitTime(30);
         $manager->persist($visitMercrediFrance1);
         $visitJeudiFrance1 = new Visit();
