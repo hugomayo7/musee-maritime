@@ -51,7 +51,6 @@ export default function BoatDetailTablePlanningWidget (props) {
         await fetchBoatsPromise().then(e => {
           let boat = e.boatsList.find(e => e.id === id)
           setTimetables(boat.visits.week)
-          console.log(boat.visits.week)
           handleClose()
         })
       })

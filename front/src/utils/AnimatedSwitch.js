@@ -8,7 +8,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import WeatherView from '../views/WeatherView'
 
 export default function AnimatedSwitch(props) {
-  console.log("🚀 ~ file: AnimatedSwitch.js ~ line 11 ~ AnimatedSwitch ~ props", props)
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
